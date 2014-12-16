@@ -135,4 +135,5 @@ repositories {
 }
 dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    compile 'com.google.android.gms:play-services:6.5.87'
 }
