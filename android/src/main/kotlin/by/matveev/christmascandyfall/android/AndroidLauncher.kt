@@ -6,6 +6,7 @@ import com.badlogic.gdx.backends.android.AndroidApplicationConfiguration
 import android.os.Bundle
 import com.google.android.gms.common.api.GoogleApiClient
 import com.google.android.gms.common.ConnectionResult
+import android.content.Intent
 
 public class AndroidLauncher : AndroidApplication() {
 
@@ -30,5 +31,10 @@ public class AndroidLauncher : AndroidApplication() {
     override fun onStop() {
         super<AndroidApplication>.onStop()
         service?.stop()
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super<AndroidApplication>.onActivityResult(requestCode, resultCode, data)
+        service?.onActivityResult(resultCode, resultCode, data)
     }
 }

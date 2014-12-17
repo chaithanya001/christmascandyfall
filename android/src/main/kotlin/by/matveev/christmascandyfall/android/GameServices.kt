@@ -74,7 +74,7 @@ public class GameServices(val activity: Activity) : GoogleApiClient.ConnectionCa
         }
     }
 
-    public fun onActivityResult(requestCode: Int, resultCode: Int, intent: Intent) {
+    public fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (requestCode == requestCodeSignIn) {
             isResolvingConnectionFailure = false
             if (resultCode == requestResultOk) {
