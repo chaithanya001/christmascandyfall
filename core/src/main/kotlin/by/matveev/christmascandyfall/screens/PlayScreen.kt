@@ -33,6 +33,9 @@ import by.matveev.christmascandyfall.core.Timer
 import by.matveev.christmascandyfall.utils.*
 import by.matveev.christmascandyfall.core.Screens
 import by.matveev.christmascandyfall.entities.*
+import by.matveev.christmascandyfall.entities.Effect
+import com.badlogic.gdx.scenes.scene2d.Actor
+import java.util.ArrayList
 
 public class PlayScreen(var controlType: ControlType) : AbstractScreen() {
 
@@ -46,6 +49,7 @@ public class PlayScreen(var controlType: ControlType) : AbstractScreen() {
     {
         atlas = Assets.get<TextureAtlas>("gfx/game.atlas")
         music = Assets.get<Music>("sounds/music.ogg")
+        isGutterVisible = true
     }
 
     var isPlay = false
@@ -184,6 +188,8 @@ public class PlayScreen(var controlType: ControlType) : AbstractScreen() {
         val children = candiesLayer.getChildren()
         val actors = children.begin();
 
+        val list = ArrayList<Actor>()
+
         actors.forEach { candy ->
             if (candy is Candy) {
                 if (santa.bounds.overlaps(candy.bounds)) {
@@ -193,6 +199,7 @@ public class PlayScreen(var controlType: ControlType) : AbstractScreen() {
 
                 if (candy.getY() + candy.getPrefHeight() < 0) {
                     if (candy.getParent() != null) {
+                        snowflakes(root(), candy.getX(), 0f)
                         candy.free()
                     }
                 }
@@ -257,8 +264,8 @@ public class PlayScreen(var controlType: ControlType) : AbstractScreen() {
 
         stage.addAction(Actions.sequence(Actions.repeat(4,
                 Actions.sequence(
-                        Actions.moveBy(offset, -offset, 0.08F, Interpolation.swingOut),
-                        Actions.moveBy(-offset, -offset, 0.08F, Interpolation.swingOut))),
+                        Actions.moveBy(offset, 0f, 0.08f, Interpolation.swingOut),
+                        Actions.moveBy(-offset, 0f, 0.08f, Interpolation.swingOut))),
                 Actions.run {
                     stage.root().setPosition(0F, 0F)
                     resize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());

@@ -25,13 +25,17 @@ import com.badlogic.gdx.scenes.scene2d.utils.ClickListener
 import com.badlogic.gdx.scenes.scene2d.Group
 import by.matveev.christmascandyfall.Cfg
 import by.matveev.christmascandyfall.utils.onKeyDown
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer
 
 public abstract class AbstractScreen : Screen {
 
-    private val clearRed = 230F / 255F
-    private val clearGreen = 75F / 255F
-    private val clearBlue = 60F / 255F
-    private val clearAlpha = 1F
+    val clearRed = 230F / 255F
+    val clearGreen = 75F / 255F
+    val clearBlue = 60F / 255F
+    val clearAlpha = 1F
+
+    val renderer = ShapeRenderer()
+    var isGutterVisible = false;
 
     public val stage: Stage;
     {
@@ -41,9 +45,24 @@ public abstract class AbstractScreen : Screen {
 
     override fun render(delta: Float) {
         with(Gdx.graphics.getGL20()) {
-            glClearColor(clearRed, clearGreen, clearBlue, clearAlpha)
+            if (isGutterVisible) {
+                glClearColor(1f, 1f, 1f, 1f)
+            } else {
+                glClearColor(clearRed, clearGreen, clearBlue, clearAlpha)
+            }
             glClear(GL20.GL_COLOR_BUFFER_BIT or GL20.GL_DEPTH_BUFFER_BIT)
         }
+
+        if (isGutterVisible) {
+            with(renderer) {
+                setProjectionMatrix(stage.getCamera().combined)
+                begin(ShapeRenderer.ShapeType.Filled);
+                setColor(clearRed, clearGreen, clearBlue, clearAlpha)
+                rect(0f, 0f, Cfg.width, Cfg.height)
+                end()
+            }
+        }
+
         stage.act()
         stage.draw()
     }
