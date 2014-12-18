@@ -103,9 +103,7 @@ public class GameState(val screen: GameScreen) {
 
                 if (!countdown.paused) {
                     countdown.paused(true)
-                    println("Count down PAUSE!")
                     Timer.times(Cfg.frozenTimeDelay, 1) {
-                        println("Count down CONTINUE!")
                         countdown.paused(false)
                     }
                 }

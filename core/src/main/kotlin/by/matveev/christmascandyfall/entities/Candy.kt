@@ -54,6 +54,8 @@ public enum class CandyType {
     Freeze
     MinusScore
     MinusTime
+    GangOfSanta
+    GiftsRain
     Null
 }
 
@@ -105,6 +107,8 @@ public class Candy(
             CandyType.Multiply -> return atlas.findRegion("bonus_multiply")
             CandyType.MinusScore -> return atlas.findRegion("antibonus_score")
             CandyType.MinusTime -> return atlas.findRegion("antibonus_time")
+            CandyType.GangOfSanta -> return atlas.findRegion("bonus_santa")
+            CandyType.GiftsRain -> return atlas.findRegion("bonus_gifts")
             else -> throw IllegalStateException("Unknow value ${candyType}")
         }
     }

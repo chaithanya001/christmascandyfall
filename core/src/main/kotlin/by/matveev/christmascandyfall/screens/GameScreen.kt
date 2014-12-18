@@ -151,8 +151,6 @@ public class GameScreen(var controlType: ControlType) : AbstractScreen() {
             if (candy is Candy) {
                 if (santa.bounds.overlaps(candy.bounds)) {
                     state.apply(candy)
-                    println("applied for candyType = [${candy.type}] state=[gameTime=${state.gameTime}, bonusTime=${state.bonusTime}, score=${state.score}, countdown=${state.countdown.paused}]")
-
                     candy.free()
                 }
 
