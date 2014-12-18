@@ -24,7 +24,7 @@ import com.badlogic.gdx.math.Vector3
 import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.scenes.scene2d.actions.Actions
 import com.badlogic.gdx.math.Interpolation
-import by.matveev.christmascandyfall.screens.PlayScreen.ControlType
+import by.matveev.christmascandyfall.screens.GameScreen.ControlType
 import by.matveev.christmascandyfall.core.Assets
 import by.matveev.christmascandyfall.core.AbstractScreen
 import by.matveev.christmascandyfall.Cfg
@@ -37,7 +37,7 @@ import by.matveev.christmascandyfall.entities.Effect
 import com.badlogic.gdx.scenes.scene2d.Actor
 import java.util.ArrayList
 
-public class PlayScreen(var controlType: ControlType) : AbstractScreen() {
+public class GameScreen(var controlType: ControlType) : AbstractScreen() {
 
     public enum class ControlType {
         Touch
@@ -188,8 +188,6 @@ public class PlayScreen(var controlType: ControlType) : AbstractScreen() {
         val children = candiesLayer.getChildren()
         val actors = children.begin();
 
-        val list = ArrayList<Actor>()
-
         actors.forEach { candy ->
             if (candy is Candy) {
                 if (santa.bounds.overlaps(candy.bounds)) {
@@ -199,7 +197,6 @@ public class PlayScreen(var controlType: ControlType) : AbstractScreen() {
 
                 if (candy.getY() + candy.getPrefHeight() < 0) {
                     if (candy.getParent() != null) {
-                        snowflakes(root(), candy.getX(), 0f)
                         candy.free()
                     }
                 }
@@ -231,12 +228,14 @@ public class PlayScreen(var controlType: ControlType) : AbstractScreen() {
             }
             CandyType.Freeze -> {
                 showMessage(root(), "Freeze Time")
+                snowflakes(root(), Cfg.width * 0.5f, Cfg.height * 0.5f)
                 countdown?.paused(true)
                 Timer.times(10F, 1) { countdown?.paused(false) }
             }
 
             CandyType.Multiply -> {
                 showMessage(root(), "Double Score");
+                stars(root(), Cfg.width * 0.5f, Cfg.height * 0.5f)
                 score *= 2;
                 scoreLabel.setText(score.toString())
             }

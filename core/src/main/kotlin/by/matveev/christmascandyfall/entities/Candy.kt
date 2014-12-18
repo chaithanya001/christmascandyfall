@@ -34,7 +34,11 @@ public fun createCandy(): Candy = candyPool.obtain().init()
 
 public fun createBonus(): Candy {
     val type = if (MathUtils.randomBoolean()) CandyType.Freeze else CandyType.Multiply
-    return candyPool.obtain().init(type)
+    val candy = candyPool.obtain().init(type)
+    candy.addAction(Actions.repeat(-1, Actions.sequence(
+            Actions.scaleTo(1.2f, 1.2f, 0.8f),
+            Actions.scaleTo(0.8f, 0.8f, 0.8f))))
+    return candy
 }
 
 public fun createAntiBonus(): Candy {
@@ -42,16 +46,6 @@ public fun createAntiBonus(): Candy {
     return candyPool.obtain().init(type)
 }
 
-public enum class CandyType {
-    PlusScore
-    PlusDoubleScore
-    PlusTime
-    Multiply
-    Freeze
-    MinusScore
-    MinusTime
-    Null
-}
 
 public class Candy(
         var type: CandyType = CandyType.Null,

@@ -7,17 +7,28 @@ import by.matveev.christmascandyfall.utils.Pool
 import by.matveev.christmascandyfall.core.Assets
 import com.badlogic.gdx.scenes.scene2d.Group
 
-private val effectsPool: Pool<Effect> = Pool({ Effect(Assets.get("effects/snowflakes.p")) }) {}
+private val startsPool: Pool<Effect> = Pool({ Effect(Assets.get("effects/stars.p")) }) {}
+private val snowflakesPool: Pool<Effect> = Pool({ Effect(Assets.get("effects/snowflakes.p")) }) {}
 
 public fun snowflakes(parent: Group, x: Float, y: Float) {
-    val effect = effectsPool.obtain()
+    val effect = snowflakesPool.obtain()
+    effect.pool = snowflakesPool;
     effect.setPosition(x, y)
     parent.addActor(effect)
 }
 
-public class Effect(var effect: ParticleEffect) : Actor() {
+public fun stars(parent: Group, x: Float, y: Float) {
+    val effect = startsPool.obtain()
+    effect.pool = startsPool;
+    effect.setPosition(x, y)
+    parent.addActor(effect)
+}
 
-    { effect.start() }
+public class Effect(var effect: ParticleEffect, var pool: Pool<Effect>? = null) : Actor() {
+
+    {
+        effect.start()
+    }
 
     override fun draw(batch: Batch?, parentAlpha: Float) {
         super.draw(batch, parentAlpha)
@@ -33,7 +44,7 @@ public class Effect(var effect: ParticleEffect) : Actor() {
             effect.setPosition(0f, 0f)
             setPosition(0f, 0f)
             remove()
-            effectsPool.free(this)
+            pool?.free(this)
         }
     }
 }

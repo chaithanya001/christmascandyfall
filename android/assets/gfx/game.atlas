@@ -1,285 +1,209 @@
 
 game.png
+size: 1024,256
 format: RGBA8888
-filter: Linear,Linear
+filter: Nearest,Nearest
 repeat: none
-santahead
-  rotate: false
-  xy: 1, 203
-  size: 308, 308
-  orig: 308, 308
-  offset: 0, 0
-  index: -1
-logo
-  rotate: false
-  xy: 1, 103
-  size: 260, 98
-  orig: 260, 98
-  offset: 0, 0
-  index: -1
-gameover_logo
-  rotate: false
-  xy: 311, 281
-  size: 104, 230
-  orig: 104, 230
-  offset: 0, 0
-  index: -1
-penguin
-  rotate: false
-  xy: 1, 1
-  size: 103, 100
-  orig: 103, 100
-  offset: 0, 0
-  index: -1
-santa
-  rotate: false
-  xy: 417, 333
-  size: 97, 178
-  orig: 97, 178
-  offset: 0, 0
-  index: -1
-speech
-  rotate: false
-  xy: 516, 401
-  size: 121, 110
-  orig: 121, 110
-  offset: 0, 0
-  index: -1
-controlTiltButton
-  rotate: false
-  xy: 639, 401
-  size: 110, 110
-  orig: 110, 110
-  offset: 0, 0
-  index: -1
-controlTouchButton
-  rotate: false
-  xy: 751, 401
-  size: 110, 110
-  orig: 110, 110
-  offset: 0, 0
-  index: -1
-playButton
-  rotate: false
-  xy: 863, 401
-  size: 110, 110
-  orig: 110, 110
-  offset: 0, 0
-  index: -1
-backwardButton
-  rotate: false
-  xy: 106, 24
-  size: 77, 77
-  orig: 77, 77
-  offset: 0, 0
-  index: -1
-continueButton
-  rotate: false
-  xy: 311, 202
-  size: 77, 77
-  orig: 77, 77
-  offset: 0, 0
-  index: -1
-exitButton
-  rotate: false
-  xy: 185, 24
-  size: 77, 77
-  orig: 77, 77
-  offset: 0, 0
-  index: -1
-facebook
-  rotate: false
-  xy: 975, 463
-  size: 48, 48
-  orig: 48, 48
-  offset: 0, 0
-  index: -1
-gplus
-  rotate: false
-  xy: 975, 413
-  size: 48, 48
-  orig: 48, 48
-  offset: 0, 0
-  index: -1
-forwardButton
-  rotate: false
-  xy: 516, 322
-  size: 77, 77
-  orig: 77, 77
-  offset: 0, 0
-  index: -1
-infoButton
-  rotate: false
-  xy: 595, 322
-  size: 77, 77
-  orig: 77, 77
-  offset: 0, 0
-  index: -1
-menuButton
-  rotate: false
-  xy: 674, 322
-  size: 77, 77
-  orig: 77, 77
-  offset: 0, 0
-  index: -1
-replayButton
-  rotate: false
-  xy: 753, 322
-  size: 77, 77
-  orig: 77, 77
-  offset: 0, 0
-  index: -1
-scoresButton
-  rotate: false
-  xy: 832, 322
-  size: 77, 77
-  orig: 77, 77
-  offset: 0, 0
-  index: -1
-soundOffButton
-  rotate: false
-  xy: 911, 322
-  size: 77, 77
-  orig: 77, 77
-  offset: 0, 0
-  index: -1
-soundOnButton
-  rotate: false
-  xy: 417, 254
-  size: 77, 77
-  orig: 77, 77
-  offset: 0, 0
-  index: -1
-cursor
-  rotate: false
-  xy: 263, 123
-  size: 13, 78
-  orig: 13, 78
-  offset: 0, 0
-  index: -1
-linkedin
-  rotate: false
-  xy: 496, 272
-  size: 48, 48
-  orig: 48, 48
-  offset: 0, 0
-  index: -1
-twitter
-  rotate: false
-  xy: 546, 272
-  size: 48, 48
-  orig: 48, 48
-  offset: 0, 0
-  index: -1
-vk
-  rotate: false
-  xy: 596, 272
-  size: 48, 48
-  orig: 48, 48
-  offset: 0, 0
-  index: -1
-rect_mask
-  rotate: false
-  xy: 646, 278
-  size: 42, 42
-  orig: 42, 42
-  offset: 0, 0
-  index: -1
 antibonus_score
   rotate: false
-  xy: 690, 280
+  xy: 602, 80
   size: 42, 40
   orig: 42, 40
-  offset: 0, 0
-  index: -1
-bonus_multiply
-  rotate: false
-  xy: 734, 280
-  size: 42, 40
-  orig: 42, 40
-  offset: 0, 0
-  index: -1
-bonus_freeze
-  rotate: false
-  xy: 778, 278
-  size: 38, 42
-  orig: 38, 42
-  offset: 0, 0
-  index: -1
-candy8
-  rotate: false
-  xy: 818, 278
-  size: 38, 42
-  orig: 38, 42
   offset: 0, 0
   index: -1
 antibonus_time
   rotate: false
-  xy: 858, 283
+  xy: 811, 116
   size: 37, 37
   orig: 37, 37
   offset: 0, 0
   index: -1
-candy7
+backwardButton
   rotate: false
-  xy: 278, 159
-  size: 30, 42
-  orig: 30, 42
+  xy: 771, 155
+  size: 77, 77
+  orig: 77, 77
   offset: 0, 0
   index: -1
-pauseButton
+bonus_freeze
   rotate: false
-  xy: 897, 288
-  size: 32, 32
-  orig: 32, 32
+  xy: 602, 36
+  size: 38, 42
+  orig: 38, 42
+  offset: 0, 0
+  index: -1
+bonus_multiply
+  rotate: false
+  xy: 152, 12
+  size: 42, 40
+  orig: 42, 40
   offset: 0, 0
   index: -1
 candy1
   rotate: false
-  xy: 390, 237
+  xy: 646, 78
   size: 17, 42
   orig: 17, 42
   offset: 0, 0
   index: -1
 candy2
   rotate: false
-  xy: 310, 158
+  xy: 642, 34
   size: 17, 42
   orig: 17, 42
   offset: 0, 0
   index: -1
 candy3
   rotate: false
-  xy: 329, 158
+  xy: 916, 111
   size: 17, 42
   orig: 17, 42
   offset: 0, 0
   index: -1
 candy4
   rotate: false
-  xy: 348, 158
+  xy: 935, 111
   size: 17, 42
   orig: 17, 42
   offset: 0, 0
   index: -1
 candy5
   rotate: false
-  xy: 367, 158
+  xy: 954, 111
   size: 17, 42
   orig: 17, 42
   offset: 0, 0
   index: -1
 candy6
   rotate: false
-  xy: 278, 115
+  xy: 973, 111
   size: 17, 42
   orig: 17, 42
   offset: 0, 0
   index: -1
-mask
+candy7
   rotate: false
-  xy: 106, 11
-  size: 3, 11
-  orig: 3, 11
+  xy: 850, 111
+  size: 30, 42
+  orig: 30, 42
+  offset: 0, 0
+  index: -1
+candy8
+  rotate: false
+  xy: 771, 111
+  size: 38, 42
+  orig: 38, 42
+  offset: 0, 0
+  index: -1
+continueButton
+  rotate: false
+  xy: 850, 155
+  size: 77, 77
+  orig: 77, 77
+  offset: 0, 0
+  index: -1
+controlTiltButton
+  rotate: false
+  xy: 330, 122
+  size: 110, 110
+  orig: 110, 110
+  offset: 0, 0
+  index: -1
+controlTouchButton
+  rotate: false
+  xy: 442, 122
+  size: 110, 110
+  orig: 110, 110
+  offset: 0, 0
+  index: -1
+exitButton
+  rotate: false
+  xy: 929, 155
+  size: 77, 77
+  orig: 77, 77
+  offset: 0, 0
+  index: -1
+gameover_logo
+  rotate: false
+  xy: 2, 2
+  size: 104, 230
+  orig: 104, 230
+  offset: 0, 0
+  index: -1
+infoButton
+  rotate: false
+  xy: 207, 43
+  size: 77, 77
+  orig: 77, 77
+  offset: 0, 0
+  index: -1
+menuButton
+  rotate: false
+  xy: 286, 43
+  size: 77, 77
+  orig: 77, 77
+  offset: 0, 0
+  index: -1
+pauseButton
+  rotate: false
+  xy: 882, 121
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+penguin
+  rotate: false
+  xy: 666, 132
+  size: 103, 100
+  orig: 103, 100
+  offset: 0, 0
+  index: -1
+playButton
+  rotate: false
+  xy: 554, 122
+  size: 110, 110
+  orig: 110, 110
+  offset: 0, 0
+  index: -1
+rect_mask
+  rotate: false
+  xy: 108, 10
+  size: 42, 42
+  orig: 42, 42
+  offset: 0, 0
+  index: -1
+replayButton
+  rotate: false
+  xy: 365, 43
+  size: 77, 77
+  orig: 77, 77
+  offset: 0, 0
+  index: -1
+santa
+  rotate: false
+  xy: 108, 54
+  size: 97, 178
+  orig: 97, 178
+  offset: 0, 0
+  index: -1
+soundOffButton
+  rotate: false
+  xy: 444, 43
+  size: 77, 77
+  orig: 77, 77
+  offset: 0, 0
+  index: -1
+soundOnButton
+  rotate: false
+  xy: 523, 43
+  size: 77, 77
+  orig: 77, 77
+  offset: 0, 0
+  index: -1
+speech
+  rotate: false
+  xy: 207, 122
+  size: 121, 110
+  orig: 121, 110
   offset: 0, 0
   index: -1

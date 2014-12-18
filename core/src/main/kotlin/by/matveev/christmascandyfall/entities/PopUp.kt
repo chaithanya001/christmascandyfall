@@ -39,8 +39,8 @@ public fun showMessage(parent: Group, text: String) {
     message.getColor().a = 0f;
 
     message.addAction(Actions.sequence(
-            Actions.alpha(1F, 0.5f, Interpolation.bounceOut),
-            Actions.alpha(0F, 0.5f, Interpolation.bounceIn),
+            Actions.alpha(1F, 1f, Interpolation.bounceOut),
+            Actions.alpha(0F, 1f, Interpolation.bounceIn),
             Actions.run { message.free() }))
 
     parent.addActor(message)

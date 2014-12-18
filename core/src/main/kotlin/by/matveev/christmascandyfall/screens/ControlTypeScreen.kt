@@ -58,7 +58,7 @@ public class ControlTypeScreen : AbstractScreen() {
                     }
 
                     image(this, atlas.findRegion("controlTouchButton")) {
-                        rippleClicked { Screens.set(PlayScreen(PlayScreen.ControlType.Touch)) }
+                        rippleClicked { Screens.set(GameScreen(GameScreen.ControlType.Touch)) }
                         hoverEffect()
                     }
                 }
@@ -75,7 +75,7 @@ public class ControlTypeScreen : AbstractScreen() {
                     }
 
                     image(this, atlas.findRegion("controlTiltButton")) {
-                        rippleClicked { Screens.set(PlayScreen(PlayScreen.ControlType.Tilt)) }
+                        rippleClicked { Screens.set(GameScreen(GameScreen.ControlType.Tilt)) }
                         hoverEffect()
                     }
                 }
