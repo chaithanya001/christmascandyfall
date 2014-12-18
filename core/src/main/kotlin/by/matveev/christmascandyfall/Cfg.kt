@@ -24,7 +24,8 @@ public class Cfg {
         val width = 480F
         val height = 800F
 
-        val gravity = Vector2(0F, -10F)
+        val gravity = Vector2(0F, -9.8F)
+        val friction = 0.7f
 
         val initialTime = 60 * 1000
         val bonusTime = 7 * 1000

@@ -36,6 +36,7 @@ import by.matveev.christmascandyfall.entities.*
 import by.matveev.christmascandyfall.entities.Effect
 import com.badlogic.gdx.scenes.scene2d.Actor
 import java.util.ArrayList
+import com.badlogic.gdx.Input
 
 public class GameScreen(var controlType: ControlType) : AbstractScreen() {
 
@@ -108,16 +109,37 @@ public class GameScreen(var controlType: ControlType) : AbstractScreen() {
     val touch = Vector3()
 
     fun input(delta: Float) {
-        touch.x = Gdx.input.getX().toFloat()
-        touch.y = Gdx.input.getY().toFloat()
 
-        stage.getCamera().unproject(touch)
+        touch.set(Gdx.input.getX().toFloat(), Gdx.input.getY().toFloat(), 0f)
+        stage.getViewport().unproject(touch)
 
+        var direction = 0f
 
         when (controlType) {
-            ControlType.Touch -> santa.setX(touch.x - santa.getPrefWidth() * 0.5F)
-            ControlType.Tilt -> santa.setX(santa.getX() - (Gdx.input.getAccelerometerX() * Cfg.santaVelocity * delta))
+            ControlType.Touch -> {
+                if (Gdx.input.isTouched(0)) {
+                    val position = Math.abs((santa.getX() + santa.bounds.width * 0.5f) - touch.x) * 1
+                    direction = if (position > 10f) (santa.getX() + santa.bounds.width * 0.5f) - touch.x else 0f
+                }
+            }
+            ControlType.Tilt -> direction = Gdx.input.getAccelerometerX()
         }
+
+        if (direction > 0f) {
+            santa.acceleration -= 2f
+            if (santa.acceleration < -100f) {
+                santa.acceleration = -100f
+            }
+        }
+
+        if (direction < 0f) {
+            santa.acceleration += 2
+            if (santa.acceleration > 100f) {
+                santa.acceleration = 100f
+            }
+        }
+
+
 
         if (santa.getX() < 0F) {
             santa.setX(0F)
