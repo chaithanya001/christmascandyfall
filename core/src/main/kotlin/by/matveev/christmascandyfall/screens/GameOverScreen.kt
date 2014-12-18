@@ -26,7 +26,7 @@ import com.badlogic.gdx.Gdx
 import by.matveev.christmascandyfall.Cfg
 
 
-public class GameOverScreen(var score: Int = 0) : AbstractScreen() {
+public class GameOverScreen(var state: GameState) : AbstractScreen() {
 
     override fun show() {
         super.show()
@@ -36,7 +36,7 @@ public class GameOverScreen(var score: Int = 0) : AbstractScreen() {
             space = 40F
 
             label(this) {
-                text = "You collected\n${score}\ncandies".toUpperCase()
+                text = "You collected\n${state.score}\ncandies".toUpperCase()
                 font = Assets.get("fonts/font.fnt")
                 fontColor = Color.WHITE
                 align = Align.center
@@ -51,7 +51,7 @@ public class GameOverScreen(var score: Int = 0) : AbstractScreen() {
                 space = 20F
 
                 image(this, atlas.findRegion("replayButton")) {
-                    rippleClicked { Screens.pop() }
+                    rippleClicked { Screens.set(GameScreen(state.controlType)) }
                     hoverEffect()
                 }
 

@@ -52,14 +52,15 @@ public class Timer(delay: Float, callback: () -> Unit, count: Int = -1) {
             timers.remove(this);
             return
         }
+
         time -= delta;
         if (time < 0) {
             time = delay;
             callback()
-        }
 
-        if (count > 0)
-            executed++;
+            if (count > 0)
+                executed++;
+        }
     }
 
     public fun cancel(): Unit {

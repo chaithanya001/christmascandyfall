@@ -46,6 +46,16 @@ public fun createAntiBonus(): Candy {
     return candyPool.obtain().init(type)
 }
 
+public enum class CandyType {
+    PlusScore
+    PlusDoubleScore
+    PlusTime
+    Multiply
+    Freeze
+    MinusScore
+    MinusTime
+    Null
+}
 
 public class Candy(
         var type: CandyType = CandyType.Null,
@@ -105,6 +115,8 @@ public class Candy(
     }
 
     public fun reset() {
+        type = CandyType.Null
+        bounds.set(0f, 0f, 0f, 0f)
         setDrawable(null)
         clearActions()
         clearListeners()

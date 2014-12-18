@@ -21,31 +21,31 @@ import com.badlogic.gdx.math.MathUtils
 public class Cfg {
 
     class object {
-        val width: Float = 480F
-        val height: Float = 800F
+        val width = 480F
+        val height = 800F
 
         val gravity = Vector2(0F, -10F)
 
-        val initialTime: Int = 60 * 1000
-        val bonusTime: Int = 7 * 1000
+        val initialTime = 60 * 1000
+        val bonusTime = 7 * 1000
 
-        val warningTimeThreshold: Int = 10 * 1000
+        val warningTimeThreshold = 10 * 1000
 
-        val frozenTimeDelay: Int = 5 * 1000
+        val frozenTimeDelay = 5f
 
-        val santaVelocity: Float = 100F
-        val candyVelocity: FloatRange = 250F..450F
-        val bonusVelocity: FloatRange = 35F..60F
+        val scoreBonus = 1
+        val doubleScoreBonus = 2 * scoreBonus
+        val timeBonus = 1 * 1000
 
+        val scoreMultiplier = 1.3f
 
+        val scoreAntiBonus = 50
+        val timeAntiBonus = 20 * 1000
+
+        val vibrateDuration = 1000
+
+        val santaVelocity = 100F
+        val candyVelocity = 250F..450F
+        val bonusVelocity = 35F..60F
     }
-}
-
-val pixelToMeterRatio = 50F
-
-public fun Float.toMeters(): Float = this / pixelToMeterRatio
-public fun Float.toPixels(): Float = this * pixelToMeterRatio
-
-public fun Float.toDegrees(): Float {
-    return MathUtils.radiansToDegrees * this
 }
