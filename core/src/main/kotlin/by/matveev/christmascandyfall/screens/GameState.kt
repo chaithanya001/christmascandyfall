@@ -44,6 +44,8 @@ public class GameState(val screen: GameScreen) {
 
     val controlType = screen.controlType
 
+    var multiplier = 1
+
     val root: Group
     {
         root = screen.stage.root()
@@ -57,7 +59,7 @@ public class GameState(val screen: GameScreen) {
         }
 
         bonusGenerator = Timer.every(Cfg.bonusTime) {
-            if (MathUtils.randomBoolean(MathUtils.random(0.9f))) {
+            if (MathUtils.randomBoolean(MathUtils.random())) {
                 screen.candies.addActor(createBonus())
             }
             if (MathUtils.randomBoolean(MathUtils.random())) {
@@ -78,18 +80,21 @@ public class GameState(val screen: GameScreen) {
 
         when (candy.type) {
             CandyType.PlusScore -> {
-                score += Cfg.scoreBonus
-                showPopup(root, "+${Cfg.scoreBonus}", x, y)
+                val add = Cfg.scoreBonus * multiplier
+                score += add
+                showPopup(root, "+${add}", x, y)
             }
 
             CandyType.PlusTime -> {
-                gameTime += Cfg.timeBonus
-                showPopup(root, "+${Cfg.timeBonus.asString()}", x, y)
+                val add = Cfg.timeBonus * multiplier
+                gameTime += add
+                showPopup(root, "+${add.asString()}", x, y)
             }
 
             CandyType.PlusDoubleScore -> {
-                score += Cfg.doubleScoreBonus
-                showPopup(root, "+${Cfg.doubleScoreBonus}", x, y)
+                val add = Cfg.doubleScoreBonus * multiplier
+                score += add
+                showPopup(root, "+${add}", x, y)
             }
 
             CandyType.Freeze -> {
@@ -98,6 +103,7 @@ public class GameState(val screen: GameScreen) {
 
                 if (!countdown.paused) {
                     countdown.paused(true)
+                    screen.indicator.start(Cfg.frozenTimeDelay)
                     Timer.times(Cfg.frozenTimeDelay, 1) {
                         countdown.paused(false)
                     }
@@ -105,9 +111,13 @@ public class GameState(val screen: GameScreen) {
             }
 
             CandyType.Multiply -> {
-                showMessage(root, "Multiply Score");
+                multiplier = 2
+                showMessage(root, "Double Score & Time");
                 stars(root, Cfg.width * 0.5f, Cfg.height * 0.5f)
-                score = (score * Cfg.scoreMultiplier).toInt()
+                screen.indicator.start(2 * Cfg.frozenTimeDelay)
+                Timer.times(2 * Cfg.frozenTimeDelay, 1) {
+                    multiplier = 1
+                }
             }
 
             CandyType.MinusScore -> {
@@ -134,6 +144,7 @@ public class GameState(val screen: GameScreen) {
                 bonusGenerator.paused(true)
                 screen.candies.clear()
 
+                screen.indicator.start(50f * 0.1f)
                 val timer = Timer.times(0.1f, 50) {
                     screen.candies.addActor(createGiftCandy())
                 }

@@ -68,6 +68,8 @@ public class GameScreen(var controlType: ControlType) : AbstractScreen() {
 
     val touch = Vector3()
 
+    val indicator = Indicator()
+
     override fun show() {
         super.show()
 
@@ -98,6 +100,7 @@ public class GameScreen(var controlType: ControlType) : AbstractScreen() {
 
             root().addActor(scoreLabel)
             root().addActor(timeLabel)
+            root().addActor(indicator)
 
             image(root(), atlas.findRegion("pauseButton")) {
                 rippleClicked { Screens.push(PauseScreen()) }
