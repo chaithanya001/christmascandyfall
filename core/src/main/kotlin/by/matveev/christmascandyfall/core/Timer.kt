@@ -35,6 +35,9 @@ public class Timer(delay: Float, callback: () -> Unit, count: Int = -1) {
         timers.add(this);
     }
 
+    // optional on completing callback
+    var complete : (() -> Unit)? = null
+
     val delay = delay;
     val count = count;
     val callback = callback;
@@ -50,6 +53,7 @@ public class Timer(delay: Float, callback: () -> Unit, count: Int = -1) {
 
         if (canceled || executed == count) {
             timers.remove(this);
+            if (complete != null) complete!!()
             return
         }
 

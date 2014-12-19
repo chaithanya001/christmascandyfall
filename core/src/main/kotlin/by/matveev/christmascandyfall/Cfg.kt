@@ -32,7 +32,8 @@ public class Cfg {
         val santaVelocityMax = 100f
 
         val initialTime = 60 * 1000
-        val bonusTime = 7 * 1000
+        val bonusTime = 7f
+        val powerUpTime = 20f
 
         val warningTimeThreshold = 10 * 1000
 

@@ -21,14 +21,7 @@ import by.matveev.christmascandyfall.core.Timer
 import by.matveev.christmascandyfall.core.Screens
 import by.matveev.christmascandyfall.utils.*
 import com.badlogic.gdx.math.MathUtils
-import by.matveev.christmascandyfall.entities.createBonus
-import by.matveev.christmascandyfall.entities.createAntiBonus
-import by.matveev.christmascandyfall.entities.createCandy
-import by.matveev.christmascandyfall.entities.CandyType
-import by.matveev.christmascandyfall.entities.showPopup
-import by.matveev.christmascandyfall.entities.showMessage
-import by.matveev.christmascandyfall.entities.snowflakes
-import by.matveev.christmascandyfall.entities.stars
+import by.matveev.christmascandyfall.entities.*
 import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.scenes.scene2d.actions.Actions
 import com.badlogic.gdx.math.Interpolation
@@ -42,10 +35,12 @@ public class GameState(val screen: GameScreen) {
 
     var gameTime = Cfg.initialTime
     var bonusTime = 0
+    var powerUpTime = 0
 
     val countdown: Timer
     val bonusGenerator: Timer
     val candyGenerator: Timer
+    val powerUpGenerator: Timer
 
     val controlType = screen.controlType
 
@@ -61,17 +56,17 @@ public class GameState(val screen: GameScreen) {
             }
         }
 
-        bonusGenerator = Timer.every(1F) {
-            bonusTime += 1000
-            if (bonusTime >= Cfg.bonusTime) {
-                if (MathUtils.randomBoolean(MathUtils.random(0.9f, 1f))) {
-                    screen.candies.addActor(createBonus())
-                }
-                if (MathUtils.randomBoolean(MathUtils.random(0.95f, 1f))) {
-                    screen.candies.addActor(createAntiBonus())
-                }
-                bonusTime = 0
+        bonusGenerator = Timer.every(Cfg.bonusTime) {
+            if (MathUtils.randomBoolean(MathUtils.random(0.9f))) {
+                screen.candies.addActor(createBonus())
             }
+            if (MathUtils.randomBoolean(MathUtils.random())) {
+                screen.candies.addActor(createAntiBonus())
+            }
+        }
+
+        powerUpGenerator = Timer.every(Cfg.powerUpTime) {
+            screen.candies.addActor(createPowerUp())
         }
 
         candyGenerator = Timer.every(0.5F) { screen.candies.addActor(createCandy()) }
@@ -130,6 +125,26 @@ public class GameState(val screen: GameScreen) {
                 Gdx.input.vibrate(Cfg.vibrateDuration);
                 shake()
             }
+
+            CandyType.CandyRain -> {
+                showMessage(root, "Candy Rain");
+                stars(root, Cfg.width * 0.5f, Cfg.height * 0.5f)
+                candyGenerator.paused(true)
+                powerUpGenerator.paused(true)
+                bonusGenerator.paused(true)
+                screen.candies.clear()
+
+                val timer = Timer.times(0.1f, 50) {
+                    screen.candies.addActor(createGiftCandy())
+                }
+
+                timer.complete = {
+                    candyGenerator.paused(false)
+                    powerUpGenerator.paused(false)
+                    bonusGenerator.paused(false)
+                }
+            }
+
         }
     }
 
