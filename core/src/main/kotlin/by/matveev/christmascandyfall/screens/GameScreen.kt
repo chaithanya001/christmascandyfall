@@ -66,6 +66,8 @@ public class GameScreen(var controlType: ControlType) : AbstractScreen() {
     val candies = Group()
     val santa = Santa()
 
+    val touch = Vector3()
+
     override fun show() {
         super.show()
 
@@ -106,48 +108,36 @@ public class GameScreen(var controlType: ControlType) : AbstractScreen() {
         }
     }
 
-    val touch = Vector3()
 
-    fun input(delta: Float) {
+    fun handleInput() {
+        santa.velocity -= (Cfg.acceleration * direction())
+        santa.velocity = MathUtils.clamp(santa.velocity, Cfg.santaVelocityMin, Cfg.santaVelocityMax)
+        santa.setX(MathUtils.clamp(santa.getX(), 0f, Cfg.width - santa.getWidth()))
+    }
+
+    fun direction(): Float {
+        // should be simplified
 
         touch.set(Gdx.input.getX().toFloat(), Gdx.input.getY().toFloat(), 0f)
         stage.getViewport().unproject(touch)
 
-        var direction = 0f
-
+        val offset: Float
+        val threshold: Float
         when (controlType) {
             ControlType.Touch -> {
-                if (Gdx.input.isTouched(0)) {
-                    val position = Math.abs((santa.getX() + santa.bounds.width * 0.5f) - touch.x) * 1
-                    direction = if (position > 10f) (santa.getX() + santa.bounds.width * 0.5f) - touch.x else 0f
-                }
+                offset = if (Gdx.input.isTouched()) (santa.getX() + santa.bounds.width * 0.5f) - touch.x else 0f
+                threshold = santa.bounds.width * 0.1f
             }
-            ControlType.Tilt -> direction = Gdx.input.getAccelerometerX()
-        }
-
-        if (direction > 0f) {
-            santa.acceleration -= 2f
-            if (santa.acceleration < -100f) {
-                santa.acceleration = -100f
+            ControlType.Tilt -> {
+                offset = Gdx.input.getAccelerometerX()
+                threshold = 0f
+            }
+            else -> {
+                offset = 0f
+                threshold = 0f
             }
         }
-
-        if (direction < 0f) {
-            santa.acceleration += 2
-            if (santa.acceleration > 100f) {
-                santa.acceleration = 100f
-            }
-        }
-
-
-
-        if (santa.getX() < 0F) {
-            santa.setX(0F)
-        }
-
-        if (santa.getX() > Cfg.width - santa.getWidth()) {
-            santa.setX(Cfg.width - santa.getWidth())
-        }
+        return if (Math.abs(offset) >= threshold) Math.signum(offset) else 0f
     }
 
     override fun render(delta: Float) {
@@ -160,7 +150,7 @@ public class GameScreen(var controlType: ControlType) : AbstractScreen() {
 
         state.update(delta)
 
-        input(delta)
+        handleInput()
 
         checkCollisions()
     }

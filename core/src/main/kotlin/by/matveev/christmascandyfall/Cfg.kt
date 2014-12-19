@@ -27,6 +27,10 @@ public class Cfg {
         val gravity = Vector2(0F, -9.8F)
         val friction = 0.7f
 
+        val acceleration = 2f
+        val santaVelocityMin = -100f
+        val santaVelocityMax = 100f
+
         val initialTime = 60 * 1000
         val bonusTime = 7 * 1000
 
@@ -45,7 +49,6 @@ public class Cfg {
 
         val vibrateDuration = 1000
 
-        val santaVelocity = 100F
         val candyVelocity = 250F..450F
         val bonusVelocity = 35F..60F
     }

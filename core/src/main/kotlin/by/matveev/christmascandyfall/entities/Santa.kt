@@ -21,6 +21,8 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas
 import by.matveev.christmascandyfall.core.Assets
 import by.matveev.christmascandyfall.utils.setRegion
 import by.matveev.christmascandyfall.Cfg
+import com.badlogic.gdx.math.MathUtils
+import com.badlogic.gdx.math.Vector3
 
 public class Santa(val bounds: Rectangle = Rectangle()) : Image() {
 
@@ -29,17 +31,18 @@ public class Santa(val bounds: Rectangle = Rectangle()) : Image() {
         setRegion(atlas.findRegion("santa"))
     }
 
-    var acceleration = 0f;
+    var velocity = 0f;
 
     override fun act(delta: Float) {
         super.act(delta)
 
-        acceleration *= Cfg.friction
-        setX(getX() + acceleration)
+        velocity *= Cfg.friction
+        setX(getX() + velocity)
 
         bounds.setWidth(getWidth() * 0.7F);
         bounds.setHeight(getHeight() * 0.4F);
         bounds.setX(getX() + (getWidth() - bounds.getWidth()) * 0.5F);
         bounds.setY(getY());
+
     }
 }

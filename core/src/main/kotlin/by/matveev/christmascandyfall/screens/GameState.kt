@@ -89,7 +89,7 @@ public class GameState(val screen: GameScreen) {
 
             CandyType.PlusTime -> {
                 gameTime += Cfg.timeBonus
-                showPopup(root, "-${Cfg.timeBonus.asString()}", x, y)
+                showPopup(root, "+${Cfg.timeBonus.asString()}", x, y)
             }
 
             CandyType.PlusDoubleScore -> {
