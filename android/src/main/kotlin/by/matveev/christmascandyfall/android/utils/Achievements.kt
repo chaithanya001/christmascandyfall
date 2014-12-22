@@ -25,13 +25,13 @@ import android.content.res.Resources
 
 public class Achievements(context: Context, val services: GameServices) {
 
-    val gameRelated: SparseArray<String>
-    val scoreRelated: SparseArray<String>
+    val gameRelated: Map<Int, String>
+    val scoreRelated: Map<Int, String>
     val resources: Resources
     {
         resources = context.getResources()
-        gameRelated = resources.sparseArray(R.array.game_achievements_ids)
-        scoreRelated = resources.sparseArray(R.array.score_achievements_ids)
+        gameRelated = resources.intKeyMap(R.array.game_achievements_ids)
+        scoreRelated = resources.intKeyMap(R.array.score_achievements_ids)
     }
 
     public fun checkFor(state: GameState) {
@@ -40,17 +40,13 @@ public class Achievements(context: Context, val services: GameServices) {
             services.submitScore(state.score.toLong())
 
             val gamesPlayed = Prefs.int(Prefs.GAMES_COUNT_KEY)
-            gameRelated.forEach({ games, identifier ->
-                if (gamesPlayed >= games) {
-                    services.unlockAchievement(identifier)
-                }
-            })
+            for ((gamesCount, identifier) in gameRelated) {
+                if (gamesPlayed >= gamesCount) services.unlockAchievement(identifier)
+            }
 
-            scoreRelated.forEach({ score, identifier ->
-                if (state.score >= score) {
-                    services.unlockAchievement(identifier)
-                }
-            })
+            for ((score, identifier) in scoreRelated) {
+                if (state.score >= score) services.unlockAchievement(identifier)
+            }
 
             if (state.score < resources.getInteger(R.integer.minimum_score)) {
                 services.unlockAchievement(resources.getString(R.string.ach_are_you_even_trying_id))

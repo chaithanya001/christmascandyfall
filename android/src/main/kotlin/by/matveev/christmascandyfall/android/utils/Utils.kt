@@ -17,19 +17,11 @@ package by.matveev.christmascandyfall.android.utils
 
 import android.content.res.Resources
 import android.util.SparseArray
+import java.util.LinkedHashMap
 
-public inline fun <T> SparseArray<out T>.forEach(operation: (key: Int, value: T) -> Unit): Unit {
-    var index = 0
-    while (index < size()) {
-        val key = keyAt(index)
-        operation(key, valueAt(key))
-        index++
-    }
-}
-
-public fun Resources.sparseArray(resourceId: Int): SparseArray<String> {
+public fun Resources.intKeyMap(resourceId: Int): Map<Int, String> {
     val array = getStringArray(resourceId)
-    val result = SparseArray<String>(array.size())
+    val result = LinkedHashMap<Int, String>(array.size())
     array.forEach { entry ->
         val pair = entry.split("\\|")
         result.put(pair[0].toInt(), pair[1])

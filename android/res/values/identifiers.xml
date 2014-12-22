@@ -19,15 +19,21 @@
     </string-array>
 
     <string-array name="score_achievements_ids">
-        <item>50|CgkIoYre87McEAIQAg</item>
-        <item>100|CgkIoYre87McEAIQAw</item>
-        <item>300|CgkIoYre87McEAIQCA</item>
-        <item>500|CgkIoYre87McEAIQCQ</item>
-        <item>1000|CgkIoYre87McEAIQCg</item>
-        <item>3000|CgkIoYre87McEAIQCw</item>
-        <item>5000|CgkIoYre87McEAIQDA</item>
-        <item>7500|CgkIoYre87McEAIQDA</item>
-        <item>10000|CgkIoYre87McEAIQDA</item>
+        <item>50|CgkIoYre87McEAIQBA</item>
+        <item>100|CgkIoYre87McEAIQDg</item>
+        <item>300|CgkIoYre87McEAIQEA</item>
+        <item>500|CgkIoYre87McEAIQDQ</item>
+        <item>1000|CgkIoYre87McEAIQDw</item>
+        <item>1500|CgkIoYre87McEAIQEQ</item>
+        <item>2000|CgkIoYre87McEAIQEg</item>
+        <item>2500|CgkIoYre87McEAIQEw</item>
+        <item>3500|CgkIoYre87McEAIQFA</item>
+        <item>5000|CgkIoYre87McEAIQFQ</item>
+        <item>10000|CgkIoYre87McEAIQFg</item>
+        <item>15000|CgkIoYre87McEAIQFw</item>
+        <item>20000|CgkIoYre87McEAIQGA</item>
+        <item>25000|CgkIoYre87McEAIQGQ</item>
+        <item>50000|CgkIoYre87McEAIQGg</item>
     </string-array>
 
 </resources>
