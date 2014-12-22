@@ -18,6 +18,15 @@ package by.matveev.christmascandyfall.android.utils
 import android.content.res.Resources
 import android.util.SparseArray
 
+public inline fun <T> SparseArray<out T>.forEach(operation: (key: Int, value: T) -> Unit): Unit {
+    var index = 0
+    while (index < size()) {
+        val key = keyAt(index)
+        operation(key, valueAt(key))
+        index++
+    }
+}
+
 public fun Resources.sparseArray(resourceId: Int): SparseArray<String> {
     val array = getStringArray(resourceId)
     val result = SparseArray<String>(array.size())

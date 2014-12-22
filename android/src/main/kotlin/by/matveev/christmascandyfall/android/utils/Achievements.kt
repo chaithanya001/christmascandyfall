@@ -35,28 +35,26 @@ public class Achievements(context: Context, val services: GameServices) {
     }
 
     public fun checkFor(state: GameState) {
-        println("checkFor()")
-        println("services.isSignedIn() -> ${services.isSignedIn()}")
         if (services.isSignedIn()) {
 
             services.submitScore(state.score.toLong())
 
-            val gameAchievementId = gameRelated.get(Prefs.int(Prefs.GAMES_COUNT_KEY))
-            if (gameAchievementId.isNotEmpty()) {
-                services.unlockAchievement(gameAchievementId)
-            }
+            val gamesPlayed = Prefs.int(Prefs.GAMES_COUNT_KEY)
+            gameRelated.forEach({ games, identifier ->
+                if (gamesPlayed >= games) {
+                    services.unlockAchievement(identifier)
+                }
+            })
 
-            println("score -> ${state.score}")
+            scoreRelated.forEach({ score, identifier ->
+                if (state.score >= score) {
+                    services.unlockAchievement(identifier)
+                }
+            })
+
             if (state.score < resources.getInteger(R.integer.minimum_score)) {
-                println("unlock achivement, are you even trying!")
                 services.unlockAchievement(resources.getString(R.string.ach_are_you_even_trying_id))
             }
-
-            val scoreAchievementId = scoreRelated.get(state.score)
-            if (scoreAchievementId.isNotEmpty()) {
-                services.unlockAchievement(scoreAchievementId)
-            }
         }
-
     }
 }
