@@ -21,6 +21,8 @@ import by.matveev.christmascandyfall.core.Screens
 import by.matveev.christmascandyfall.screens.LoadingScreen
 import by.matveev.christmascandyfall.screens.MenuScreen
 import by.matveev.christmascandyfall.core.Assets
+import by.matveev.christmascandyfall.screens.RateScreen
+import by.matveev.christmascandyfall.core.Prefs
 
 public class ChristmasCandyFall : AbstractGame() {
 
@@ -29,7 +31,29 @@ public class ChristmasCandyFall : AbstractGame() {
 
         Screens.set(LoadingScreen {
             Screens.set(MenuScreen(true))
+
+            if (shouldShowRateScreen())
+                Screens.push(RateScreen())
         })
+    }
+
+    fun shouldShowRateScreen(): Boolean {
+        if (Prefs.bool(Prefs.DONT_SHOW_RATE_KEY)) return false
+
+        val launchCount = Prefs.long(Prefs.LAUNCHES_COUNT_KEY) + 1L
+        Prefs.set(Prefs.LAUNCHES_COUNT_KEY, launchCount)
+
+        var firstLaunchTime = Prefs.long(Prefs.FIRST_LAUNCH_TIME_KEY)
+        if (firstLaunchTime == 0L) {
+            firstLaunchTime = System.currentTimeMillis()
+            Prefs.set(Prefs.FIRST_LAUNCH_TIME_KEY, firstLaunchTime)
+        }
+
+        if (launchCount >= Cfg.launchesUntilRatePrompt) {
+            return System.currentTimeMillis() >= (firstLaunchTime + (Cfg.daysUntilRatePrompt * 24 * 60 * 60 * 1000))
+        }
+
+        return false
     }
 
     override fun dispose() {

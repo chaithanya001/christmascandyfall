@@ -52,5 +52,8 @@ public class Cfg {
 
         val candyVelocity = 250F..450F
         val bonusVelocity = 35F..60F
+
+        val launchesUntilRatePrompt = 3
+        val daysUntilRatePrompt = 1
     }
 }

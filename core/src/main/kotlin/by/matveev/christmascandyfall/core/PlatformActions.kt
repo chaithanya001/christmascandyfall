@@ -22,7 +22,7 @@ public object Platform {
 }
 
 public trait PlatformActions {
-    public fun openUrl(url: String)
+    public fun openMarketPage()
 
     public fun submitScore(score: Long)
     public fun unlockAchievement(identifier: String)

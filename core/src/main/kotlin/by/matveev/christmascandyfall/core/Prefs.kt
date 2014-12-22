@@ -21,9 +21,13 @@ import com.badlogic.gdx.Gdx
 public class Prefs private() {
 
     class object {
+
         public val PREFS_KEY: String = "by.matveev.christmascandyfall.prefs";
         public val SOUNDS_KEY: String = "by.matveev.christmascandyfall.prefs.sounds";
         public val GAMES_COUNT_KEY: String = "by.matveev.christmascandyfall.prefs.gamesCount";
+        public val DONT_SHOW_RATE_KEY: String = "by.matveev.christmascandyfall.prefs.dontShowRate";
+        public val FIRST_LAUNCH_TIME_KEY: String = "by.matveev.christmascandyfall.prefs.firstLaunchTime";
+        public val LAUNCHES_COUNT_KEY: String = "by.matveev.christmascandyfall.prefs.lauchesCount";
 
         private val prefs = Gdx.app.getPreferences(PREFS_KEY)
 
@@ -44,6 +48,7 @@ public class Prefs private() {
                     is Int -> putInteger(key, value)
                     is Boolean -> putBoolean(key, value)
                     is String -> putString(key, value)
+                    is Long -> putLong(key, value)
                 }
                 prefs.flush()
             }

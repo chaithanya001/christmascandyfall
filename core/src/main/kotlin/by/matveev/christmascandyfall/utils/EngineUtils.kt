@@ -37,6 +37,7 @@ import com.badlogic.gdx.math.Vector2
 import com.badlogic.gdx.scenes.scene2d.Stage
 import com.badlogic.gdx.Input
 import by.matveev.christmascandyfall.entities.Ripple
+import com.badlogic.gdx.scenes.scene2d.ui.TextButton
 
 public fun verticalGroup(parent: Group? = null, init: VerticalGroup.() -> Unit): VerticalGroup {
     val group = VerticalGroup();
@@ -88,6 +89,14 @@ public fun label(parent: Group? = null, style: Label.LabelStyle? = null, align: 
     label.init()
     label.setAlignment(align!!, align)
     return label;
+}
+
+public fun textButton(parent: Group? = null, style: TextButton.TextButtonStyle? = null,
+                      align: Int? = Align.center, init: TextButton.() -> Unit): TextButton {
+    val button = TextButton(null, style)
+    parent?.addActor(button)
+    button.init()
+    return button;
 }
 
 public fun label(text: CharSequence, style: Label.LabelStyle? = null, align: Int? = Align.center, parent: Group? = null): Label {

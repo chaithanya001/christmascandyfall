@@ -64,7 +64,7 @@ public class GameServices(val activity: Activity) : GoogleApiClient.ConnectionCa
 
     fun isSignedIn(): Boolean = client.isConnected()
 
-    override fun openUrl(url: String) {
+    override fun openMarketPage() {
         val appPackageName = activity.getPackageName();
         try {
             activity.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appPackageName)));
