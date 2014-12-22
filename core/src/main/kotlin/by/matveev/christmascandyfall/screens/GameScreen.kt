@@ -83,6 +83,8 @@ public class GameScreen(var controlType: ControlType) : AbstractScreen() {
         startMessage.setPosition((Cfg.width - startMessage.getPrefWidth()) * 0.5F, Cfg.height * 0.5F);
         root().addActor(startMessage)
 
+        image(root(), atlas.findRegion("background"))
+
         santa.setPosition((Cfg.width - santa.getPrefWidth()) * 0.5F, 0F)
         santa.pack()
         root().addActor(santa)
@@ -106,7 +108,7 @@ public class GameScreen(var controlType: ControlType) : AbstractScreen() {
                 rippleClicked { Screens.push(PauseScreen()) }
                 hoverEffect()
                 centerInBounds(Cfg.width, Cfg.height)
-                setY(Cfg.height * 0.9F)
+                setY(Cfg.height * 0.89F)
             }
         }
     }
@@ -146,8 +148,8 @@ public class GameScreen(var controlType: ControlType) : AbstractScreen() {
     override fun render(delta: Float) {
         super.render(delta)
 
-        scoreLabel.setPosition(Cfg.width * 0.1f, Cfg.height * 0.9f)
-        timeLabel.setPosition(Cfg.width - timeLabel.getPrefWidth() - Cfg.width * 0.1f, Cfg.height * 0.9f)
+        scoreLabel.setPosition(Cfg.width * 0.1f, Cfg.height * 0.89f)
+        timeLabel.setPosition(Cfg.width - timeLabel.getPrefWidth() - Cfg.width * 0.1f, Cfg.height * 0.89f)
 
         if (!state.isPlaying) return
 

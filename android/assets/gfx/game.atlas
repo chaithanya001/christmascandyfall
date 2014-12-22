@@ -1,222 +1,229 @@
 
 game.png
-size: 1024,256
+size: 1024,1024
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
 antibonus_score
   rotate: false
-  xy: 602, 36
+  xy: 484, 489
   size: 42, 40
   orig: 42, 40
   offset: 0, 0
   index: -1
 antibonus_time
   rotate: false
-  xy: 895, 116
+  xy: 2, 2
   size: 37, 37
   orig: 37, 37
   offset: 0, 0
   index: -1
+background
+  rotate: false
+  xy: 2, 221
+  size: 480, 800
+  orig: 480, 800
+  offset: 0, 0
+  index: -1
 backwardButton
   rotate: false
-  xy: 771, 155
+  xy: 213, 142
   size: 77, 77
   orig: 77, 77
   offset: 0, 0
   index: -1
 bonus_freeze
   rotate: false
-  xy: 815, 111
+  xy: 983, 979
   size: 38, 42
   orig: 38, 42
   offset: 0, 0
   index: -1
 bonus_gifts
   rotate: false
-  xy: 108, 9
+  xy: 101, 64
   size: 43, 43
   orig: 43, 43
   offset: 0, 0
   index: -1
 bonus_multiply
   rotate: false
-  xy: 771, 113
+  xy: 146, 67
   size: 42, 40
   orig: 42, 40
   offset: 0, 0
   index: -1
 bonus_santa
   rotate: false
-  xy: 602, 78
+  xy: 781, 867
   size: 42, 42
   orig: 42, 42
   offset: 0, 0
   index: -1
 candy1
   rotate: false
-  xy: 646, 78
+  xy: 563, 645
   size: 17, 42
   orig: 17, 42
   offset: 0, 0
   index: -1
 candy2
   rotate: false
-  xy: 646, 34
+  xy: 484, 445
   size: 17, 42
   orig: 17, 42
   offset: 0, 0
   index: -1
 candy3
   rotate: false
-  xy: 665, 78
+  xy: 909, 900
   size: 17, 42
   orig: 17, 42
   offset: 0, 0
   index: -1
 candy4
   rotate: false
-  xy: 665, 34
+  xy: 563, 601
   size: 17, 42
   orig: 17, 42
   offset: 0, 0
   index: -1
 candy5
   rotate: false
-  xy: 684, 88
+  xy: 484, 401
   size: 17, 42
   orig: 17, 42
   offset: 0, 0
   index: -1
 candy6
   rotate: false
-  xy: 703, 88
+  xy: 503, 445
   size: 17, 42
   orig: 17, 42
   offset: 0, 0
   index: -1
 candy7
   rotate: false
-  xy: 934, 111
+  xy: 450, 177
   size: 30, 42
   orig: 30, 42
   offset: 0, 0
   index: -1
 candy8
   rotate: false
-  xy: 855, 111
+  xy: 869, 900
   size: 38, 42
   orig: 38, 42
   offset: 0, 0
   index: -1
 continueButton
   rotate: false
-  xy: 850, 155
+  xy: 702, 832
   size: 77, 77
   orig: 77, 77
   offset: 0, 0
   index: -1
 controlTiltButton
   rotate: false
-  xy: 330, 122
+  xy: 101, 109
   size: 110, 110
   orig: 110, 110
   offset: 0, 0
   index: -1
 controlTouchButton
   rotate: false
-  xy: 442, 122
+  xy: 590, 799
   size: 110, 110
   orig: 110, 110
   offset: 0, 0
   index: -1
 exitButton
   rotate: false
-  xy: 929, 155
+  xy: 825, 944
   size: 77, 77
   orig: 77, 77
   offset: 0, 0
   index: -1
 gameover_logo
   rotate: false
-  xy: 2, 2
+  xy: 484, 791
   size: 104, 230
   orig: 104, 230
   offset: 0, 0
   index: -1
 infoButton
   rotate: false
-  xy: 207, 43
+  xy: 484, 610
   size: 77, 77
   orig: 77, 77
   offset: 0, 0
   index: -1
 menuButton
   rotate: false
-  xy: 286, 43
+  xy: 292, 142
   size: 77, 77
   orig: 77, 77
   offset: 0, 0
   index: -1
 pauseButton
   rotate: false
-  xy: 966, 121
+  xy: 781, 833
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: -1
 penguin
   rotate: false
-  xy: 666, 132
+  xy: 484, 689
   size: 103, 100
   orig: 103, 100
   offset: 0, 0
   index: -1
 playButton
   rotate: false
-  xy: 554, 122
+  xy: 713, 911
   size: 110, 110
   orig: 110, 110
   offset: 0, 0
   index: -1
 rect_mask
   rotate: false
-  xy: 153, 10
+  xy: 825, 900
   size: 42, 42
   orig: 42, 42
   offset: 0, 0
   index: -1
 replayButton
   rotate: false
-  xy: 365, 43
+  xy: 904, 944
   size: 77, 77
   orig: 77, 77
   offset: 0, 0
   index: -1
 santa
   rotate: false
-  xy: 108, 54
+  xy: 2, 41
   size: 97, 178
   orig: 97, 178
   offset: 0, 0
   index: -1
 soundOffButton
   rotate: false
-  xy: 444, 43
+  xy: 484, 531
   size: 77, 77
   orig: 77, 77
   offset: 0, 0
   index: -1
 soundOnButton
   rotate: false
-  xy: 523, 43
+  xy: 371, 142
   size: 77, 77
   orig: 77, 77
   offset: 0, 0
   index: -1
 speech
   rotate: false
-  xy: 207, 122
+  xy: 590, 911
   size: 121, 110
   orig: 121, 110
   offset: 0, 0
