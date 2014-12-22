@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_id">424115628762</string>
+
+    <string name="leaderboard_id">CgkIoYre87McEAIQBw</string>
+
+    <integer name="minimum_score">50</integer>
+
+    <string name="ach_are_you_even_trying_id">CgkIoYre87McEAIQAQ</string>
+
+    <string-array name="game_achievements_ids">
+        <item>5|CgkIoYre87McEAIQAg</item>
+        <item>10|CgkIoYre87McEAIQAw</item>
+        <item>50|CgkIoYre87McEAIQCA</item>
+        <item>100|CgkIoYre87McEAIQCQ</item>
+        <item>500|CgkIoYre87McEAIQCg</item>
+        <item>750|CgkIoYre87McEAIQCw</item>
+        <item>1000|CgkIoYre87McEAIQDA</item>
+    </string-array>
+
+    <string-array name="score_achievements_ids">
+        <item>50|CgkIoYre87McEAIQAg</item>
+        <item>100|CgkIoYre87McEAIQAw</item>
+        <item>300|CgkIoYre87McEAIQCA</item>
+        <item>500|CgkIoYre87McEAIQCQ</item>
+        <item>1000|CgkIoYre87McEAIQCg</item>
+        <item>3000|CgkIoYre87McEAIQCw</item>
+        <item>5000|CgkIoYre87McEAIQDA</item>
+        <item>7500|CgkIoYre87McEAIQDA</item>
+        <item>10000|CgkIoYre87McEAIQDA</item>
+    </string-array>
+
 </resources>

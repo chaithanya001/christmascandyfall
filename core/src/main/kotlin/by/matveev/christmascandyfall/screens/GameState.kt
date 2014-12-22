@@ -26,6 +26,8 @@ import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.scenes.scene2d.actions.Actions
 import com.badlogic.gdx.math.Interpolation
 import com.badlogic.gdx.scenes.scene2d.Group
+import by.matveev.christmascandyfall.core.Platform
+import by.matveev.christmascandyfall.core.Prefs
 
 public class GameState(val screen: GameScreen) {
 

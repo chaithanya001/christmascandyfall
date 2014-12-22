@@ -24,6 +24,8 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas
 import by.matveev.christmascandyfall.core.Screens
 import com.badlogic.gdx.Gdx
 import by.matveev.christmascandyfall.Cfg
+import by.matveev.christmascandyfall.core.Platform
+import by.matveev.christmascandyfall.core.Prefs
 
 
 public class GameOverScreen(var state: GameState) : AbstractScreen() {
@@ -69,5 +71,9 @@ public class GameOverScreen(var state: GameState) : AbstractScreen() {
             pack()
             centerInBounds(Cfg.width, Cfg.height)
         }
+
+        Prefs.set(Prefs.GAMES_COUNT_KEY, Prefs.int(Prefs.GAMES_COUNT_KEY, 0) + 1)
+        Platform.actions?.checkForAchievements(state)
     }
+
 }

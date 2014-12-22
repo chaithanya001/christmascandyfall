@@ -21,13 +21,15 @@ import com.badlogic.gdx.Gdx
 public class Prefs private() {
 
     class object {
-        public val PREFS_KEY: String = "by.matveev.crazychristmascandyfall.prefs";
-        public val SOUNDS_KEY: String = "by.matveev.crazychristmascandyfall.prefs.sounds";
+        public val PREFS_KEY: String = "by.matveev.christmascandyfall.prefs";
+        public val SOUNDS_KEY: String = "by.matveev.christmascandyfall.prefs.sounds";
+        public val GAMES_COUNT_KEY: String = "by.matveev.christmascandyfall.prefs.gamesCount";
 
         private val prefs = Gdx.app.getPreferences(PREFS_KEY)
 
         public fun bool(key: String, fallback: Boolean = false): Boolean = prefs.getBoolean(key, fallback)
         public fun int(key: String, fallback: Int = 0): Int = prefs.getInteger(key, fallback)
+        public fun long(key: String, fallback: Long = 0L): Long = prefs.getLong(key, fallback)
         public fun string(key: String, fallback: String? = null): String = prefs.getString(key, fallback)
 
         public fun toggle(key: String): Boolean {
@@ -46,5 +48,6 @@ public class Prefs private() {
                 prefs.flush()
             }
         }
+
     }
 }

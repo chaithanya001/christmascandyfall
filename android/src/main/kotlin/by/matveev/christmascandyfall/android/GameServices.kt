@@ -25,11 +25,19 @@ import android.content.Intent
 import android.app.Activity
 import android.content.IntentSender
 import com.google.android.gms.common.GooglePlayServicesUtil
+import by.matveev.christmascandyfall.core.PlatformActions
+import android.net.Uri
+import by.matveev.christmascandyfall.android.utils.Achievements
+import by.matveev.christmascandyfall.screens.GameState
 
-public class GameServices(val activity: Activity) : GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener {
+public class GameServices(val activity: Activity) : GoogleApiClient.ConnectionCallbacks,
+        GoogleApiClient.OnConnectionFailedListener, PlatformActions {
 
+    val achievements: Achievements
     val client: GoogleApiClient
     {
+        achievements = Achievements(activity, this)
+
         client = GoogleApiClient.Builder(activity)
                 .addConnectionCallbacks(this)
                 .addOnConnectionFailedListener(this)
@@ -56,7 +64,26 @@ public class GameServices(val activity: Activity) : GoogleApiClient.ConnectionCa
 
     fun isSignedIn(): Boolean = client.isConnected()
 
-    public fun showAchievements() {
+    override fun openUrl(url: String) {
+        val appPackageName = activity.getPackageName();
+        try {
+            activity.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appPackageName)));
+        } catch (e: Exception) {
+            activity.startActivity(Intent(Intent.ACTION_VIEW,
+                    Uri.parse("http://play.google.com/store/apps/details?id=" + appPackageName)));
+        }
+    }
+
+    override fun submitScore(score: Long) {
+        Games.Leaderboards.submitScore(client, activity.getString(R.string.leaderboard_id), score);
+    }
+
+    override fun unlockAchievement(identifier: String) {
+        println("unlockAchievement = [${identifier}]")
+        Games.Achievements.unlock(client, identifier);
+    }
+
+    public override fun showAchievements() {
         if (isSignedIn()) {
             activity.startActivityForResult(
                     Games.Achievements.getAchievementsIntent(client), requestCodeUnused)
@@ -65,10 +92,10 @@ public class GameServices(val activity: Activity) : GoogleApiClient.ConnectionCa
         }
     }
 
-    public fun showLeaderboards() {
+    public override fun showLeaderBoard() {
         if (isSignedIn()) {
-            activity.startActivityForResult(
-                    Games.Leaderboards.getAllLeaderboardsIntent(client), requestCodeUnused);
+            activity.startActivityForResult(Games.Leaderboards.getLeaderboardIntent(
+                    client, activity.getString(R.string.leaderboard_id)), requestCodeUnused);
         } else {
             client.connect()
         }
@@ -109,5 +136,9 @@ public class GameServices(val activity: Activity) : GoogleApiClient.ConnectionCa
                         result.getErrorCode(), activity, requestCodeSignIn)?.show()
             }
         }
+    }
+
+    override fun checkForAchievements(state: GameState) {
+        achievements.checkFor(state)
     }
 }

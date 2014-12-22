@@ -1,7 +1,7 @@
 /*
  * Copyright (C) 2014 Alexey Matveev
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
+ * Licensed under the Apache License, Version 2.0 (the "License")
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
@@ -13,21 +13,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package by.matveev.christmascandyfall.core
+package by.matveev.christmascandyfall.android.utils
 
-import by.matveev.christmascandyfall.screens.GameState
+import android.content.res.Resources
+import android.util.SparseArray
 
-public object Platform {
-    public var actions: PlatformActions? = null
-}
-
-public trait PlatformActions {
-    public fun openUrl(url: String)
-
-    public fun submitScore(score: Long)
-    public fun unlockAchievement(identifier: String)
-    public fun showAchievements()
-    public fun showLeaderBoard()
-
-    public fun checkForAchievements(state: GameState)
+public fun Resources.sparseArray(resourceId: Int): SparseArray<String> {
+    val array = getStringArray(resourceId)
+    val result = SparseArray<String>(array.size())
+    array.forEach { entry ->
+        val pair = entry.split("\\|")
+        result.put(pair[0].toInt(), pair[1])
+    }
+    return result;
 }

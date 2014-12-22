@@ -7,6 +7,7 @@ import android.os.Bundle
 import com.google.android.gms.common.api.GoogleApiClient
 import com.google.android.gms.common.ConnectionResult
 import android.content.Intent
+import by.matveev.christmascandyfall.core.Platform
 
 public class AndroidLauncher : AndroidApplication() {
 
@@ -21,6 +22,8 @@ public class AndroidLauncher : AndroidApplication() {
         initialize(ChristmasCandyFall(), config)
 
         service = GameServices(this)
+
+        Platform.actions = service;
     }
 
     override fun onStart() {
