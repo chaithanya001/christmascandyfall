@@ -51,8 +51,7 @@ public fun createBonus(): Candy {
 }
 
 public fun createPowerUp(): Candy {
-    val type = if (MathUtils.randomBoolean()) CandyType.GangOfSanta else CandyType.CandyRain
-    val candy = candyPool.obtain().init(type)
+    val candy = candyPool.obtain().init(CandyType.CandyRain)
     candy.addAction(Actions.repeat(-1, Actions.sequence(
             Actions.scaleTo(1.1f, 1.2f, 0.4f),
             Actions.scaleTo(0.8f, 0.8f, 0.4f))))
@@ -72,7 +71,6 @@ public enum class CandyType {
     Freeze
     MinusScore
     MinusTime
-    GangOfSanta
     CandyRain
     Null
 }
@@ -125,7 +123,6 @@ public class Candy(
             CandyType.Multiply -> return atlas.findRegion("bonus_multiply")
             CandyType.MinusScore -> return atlas.findRegion("antibonus_score")
             CandyType.MinusTime -> return atlas.findRegion("antibonus_time")
-            CandyType.GangOfSanta -> return atlas.findRegion("bonus_santa")
             CandyType.CandyRain -> return atlas.findRegion("bonus_gifts")
             else -> throw IllegalStateException("Unknow value ${candyType}")
         }
@@ -139,6 +136,8 @@ public class Candy(
     public fun reset() {
         type = CandyType.Null
         bounds.set(0f, 0f, 0f, 0f)
+        setScale(1f)
+        getColor().a = 1f
         setDrawable(null)
         clearActions()
         clearListeners()
