@@ -41,6 +41,7 @@ public class GameState(val screen: GameScreen) {
 
     val countdown: Timer
     val bonusGenerator: Timer
+    val antiBonusGenerator: Timer
     val candyGenerator: Timer
     val powerUpGenerator: Timer
 
@@ -61,12 +62,11 @@ public class GameState(val screen: GameScreen) {
         }
 
         bonusGenerator = Timer.every(Cfg.bonusTime) {
-            if (MathUtils.randomBoolean(MathUtils.random())) {
-                screen.candies.addActor(createBonus())
-            }
-            if (MathUtils.randomBoolean(MathUtils.random())) {
-                screen.candies.addActor(createAntiBonus())
-            }
+            if (MathUtils.randomBoolean()) screen.candies.addActor(createBonus())
+        }
+
+        antiBonusGenerator = Timer.every(Cfg.antiBonusTime) {
+            if (MathUtils.randomBoolean()) screen.candies.addActor(createAntiBonus())
         }
 
         powerUpGenerator = Timer.every(Cfg.powerUpTime) {
@@ -144,6 +144,7 @@ public class GameState(val screen: GameScreen) {
                 candyGenerator.paused(true)
                 powerUpGenerator.paused(true)
                 bonusGenerator.paused(true)
+                antiBonusGenerator.paused(true)
                 screen.candies.clear()
 
                 screen.indicator.start(50f * 0.1f)
@@ -155,6 +156,7 @@ public class GameState(val screen: GameScreen) {
                     candyGenerator.paused(false)
                     powerUpGenerator.paused(false)
                     bonusGenerator.paused(false)
+                    antiBonusGenerator.paused(false)
                 }
             }
 

@@ -33,6 +33,7 @@ public class Cfg {
 
         val initialTime = 60 * 1000
         val bonusTime = 10f
+        val antiBonusTime = 3f
         val powerUpTime = 20f
 
         val warningTimeThreshold = 10 * 1000
