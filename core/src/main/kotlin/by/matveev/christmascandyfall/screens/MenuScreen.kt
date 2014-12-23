@@ -28,6 +28,7 @@ import by.matveev.christmascandyfall.entities.Ripple
 import by.matveev.christmascandyfall.core.Screens
 import com.badlogic.gdx.Gdx
 import by.matveev.christmascandyfall.core.Platform
+import by.matveev.christmascandyfall.core.Prefs
 
 public class MenuScreen(val intro: Boolean = false) : AbstractScreen() {
 
@@ -120,7 +121,7 @@ public class MenuScreen(val intro: Boolean = false) : AbstractScreen() {
             }
 
             image(this, atlas.findRegion("achievementsButton")) {
-                rippleClicked {
+                clicked {
                     Platform.actions?.showAchievements()
                 }
                 setScale(0F)
@@ -131,8 +132,24 @@ public class MenuScreen(val intro: Boolean = false) : AbstractScreen() {
             }
 
             image(this, atlas.findRegion("leaderboardsButton")) {
-                rippleClicked {
+                clicked {
                     Platform.actions?.showLeaderBoard()
+                }
+                setScale(0F)
+                addAction(Actions.sequence(
+                        Actions.delay(if (intro) 4F else 0.5F),
+                        Actions.scaleTo(1F, 1F, 0.5F, Interpolation.swingOut)))
+                hoverEffect()
+            }
+
+
+            val on = "soundOnButton"
+            val off = "soundOffButton"
+
+            image(this) {
+                setRegion(atlas.findRegion(if (Prefs.bool(Prefs.SOUNDS_KEY)) on else off))
+                clicked {
+                    setRegion(atlas.findRegion(if (Prefs.toggle(Prefs.SOUNDS_KEY)) on else off))
                 }
                 setScale(0F)
                 addAction(Actions.sequence(

@@ -40,4 +40,9 @@ public class AndroidLauncher : AndroidApplication() {
         super<AndroidApplication>.onActivityResult(requestCode, resultCode, data)
         service?.onActivityResult(resultCode, resultCode, data)
     }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        android.os.Process.killProcess(android.os.Process.myPid());
+    }
 }

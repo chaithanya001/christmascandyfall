@@ -26,6 +26,7 @@ import by.matveev.christmascandyfall.core.Prefs
 
 public class ChristmasCandyFall : AbstractGame() {
 
+
     override fun create() {
         Gdx.input.setCatchBackKey(true)
 
@@ -54,6 +55,13 @@ public class ChristmasCandyFall : AbstractGame() {
         }
 
         return false
+    }
+
+    override fun resume() {
+        super.resume()
+        while(!Assets.update()) {
+            // reload assets
+        }
     }
 
     override fun dispose() {

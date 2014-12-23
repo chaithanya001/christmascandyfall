@@ -180,12 +180,8 @@ public class GameState(val screen: GameScreen) {
     }
 
     fun playSoundIfEnabled(sound: Sound) {
-        println("playSoundIfEnabled")
         if (Prefs.bool(Prefs.SOUNDS_KEY)) {
-            println("should be played")
             sound.play()
-        } else {
-            println("cant play sound")
         }
     }
 
