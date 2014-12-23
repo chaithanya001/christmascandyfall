@@ -69,7 +69,10 @@ public class HelpScreen : AbstractScreen() {
                 add(label("freeze time", style)).left().row()
 
                 add(image(region = atlas.findRegion("bonus_multiply"))).center().padRight(20F).padBottom(10F)
-                add(label("double score", style)).left().row()
+                add(label("score & time x2", style)).left().row()
+
+                add(image(region = atlas.findRegion("bonus_gifts"))).center().padRight(20F).padBottom(10F)
+                add(label("candy rain", style)).left().row()
 
                 pack()
             }
