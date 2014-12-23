@@ -27,6 +27,7 @@ import com.badlogic.gdx.math.Interpolation
 import by.matveev.christmascandyfall.entities.Ripple
 import by.matveev.christmascandyfall.core.Screens
 import com.badlogic.gdx.Gdx
+import by.matveev.christmascandyfall.core.Platform
 
 public class MenuScreen(val intro: Boolean = false) : AbstractScreen() {
 
@@ -105,11 +106,33 @@ public class MenuScreen(val intro: Boolean = false) : AbstractScreen() {
 
         horizontalGroup(root()) {
             align = Align.center
-            space = 20F
+            space = 30f
 
             image(this, atlas.findRegion("infoButton")) {
                 rippleClicked {
                     Screens.set(HelpScreen())
+                }
+                setScale(0F)
+                addAction(Actions.sequence(
+                        Actions.delay(if (intro) 4F else 0.5F),
+                        Actions.scaleTo(1F, 1F, 0.5F, Interpolation.swingOut)))
+                hoverEffect()
+            }
+
+            image(this, atlas.findRegion("achievementsButton")) {
+                rippleClicked {
+                    Platform.actions?.showAchievements()
+                }
+                setScale(0F)
+                addAction(Actions.sequence(
+                        Actions.delay(if (intro) 4F else 0.5F),
+                        Actions.scaleTo(1F, 1F, 0.5F, Interpolation.swingOut)))
+                hoverEffect()
+            }
+
+            image(this, atlas.findRegion("leaderboardsButton")) {
+                rippleClicked {
+                    Platform.actions?.showLeaderBoard()
                 }
                 setScale(0F)
                 addAction(Actions.sequence(

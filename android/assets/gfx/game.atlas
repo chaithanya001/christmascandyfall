@@ -1,229 +1,236 @@
 
 game.png
-size: 1024,1024
+size: 1024,256
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
+achievementsButton
+  rotate: false
+  xy: 771, 155
+  size: 77, 77
+  orig: 77, 77
+  offset: 0, 0
+  index: -1
 antibonus_score
   rotate: false
-  xy: 484, 489
+  xy: 771, 113
   size: 42, 40
   orig: 42, 40
   offset: 0, 0
   index: -1
 antibonus_time
   rotate: false
-  xy: 2, 2
+  xy: 760, 74
   size: 37, 37
   orig: 37, 37
   offset: 0, 0
   index: -1
-background
-  rotate: false
-  xy: 2, 221
-  size: 480, 800
-  orig: 480, 800
-  offset: 0, 0
-  index: -1
 backwardButton
   rotate: false
-  xy: 213, 142
+  xy: 850, 155
   size: 77, 77
   orig: 77, 77
   offset: 0, 0
   index: -1
 bonus_freeze
   rotate: false
-  xy: 983, 979
+  xy: 903, 111
   size: 38, 42
   orig: 38, 42
   offset: 0, 0
   index: -1
 bonus_gifts
   rotate: false
-  xy: 101, 64
+  xy: 108, 9
   size: 43, 43
   orig: 43, 43
   offset: 0, 0
   index: -1
 bonus_multiply
   rotate: false
-  xy: 146, 67
+  xy: 815, 113
   size: 42, 40
   orig: 42, 40
   offset: 0, 0
   index: -1
 bonus_santa
   rotate: false
-  xy: 781, 867
+  xy: 153, 10
   size: 42, 42
   orig: 42, 42
   offset: 0, 0
   index: -1
 candy1
   rotate: false
-  xy: 563, 645
+  xy: 833, 69
   size: 17, 42
   orig: 17, 42
   offset: 0, 0
   index: -1
 candy2
   rotate: false
-  xy: 484, 445
+  xy: 852, 67
   size: 17, 42
   orig: 17, 42
   offset: 0, 0
   index: -1
 candy3
   rotate: false
-  xy: 909, 900
+  xy: 871, 67
   size: 17, 42
   orig: 17, 42
   offset: 0, 0
   index: -1
 candy4
   rotate: false
-  xy: 563, 601
+  xy: 890, 67
   size: 17, 42
   orig: 17, 42
   offset: 0, 0
   index: -1
 candy5
   rotate: false
-  xy: 484, 401
+  xy: 909, 67
   size: 17, 42
   orig: 17, 42
   offset: 0, 0
   index: -1
 candy6
   rotate: false
-  xy: 503, 445
+  xy: 928, 67
   size: 17, 42
   orig: 17, 42
   offset: 0, 0
   index: -1
 candy7
   rotate: false
-  xy: 450, 177
+  xy: 983, 111
   size: 30, 42
   orig: 30, 42
   offset: 0, 0
   index: -1
 candy8
   rotate: false
-  xy: 869, 900
+  xy: 943, 111
   size: 38, 42
   orig: 38, 42
   offset: 0, 0
   index: -1
 continueButton
   rotate: false
-  xy: 702, 832
+  xy: 929, 155
   size: 77, 77
   orig: 77, 77
   offset: 0, 0
   index: -1
 controlTiltButton
   rotate: false
-  xy: 101, 109
+  xy: 330, 122
   size: 110, 110
   orig: 110, 110
   offset: 0, 0
   index: -1
 controlTouchButton
   rotate: false
-  xy: 590, 799
+  xy: 442, 122
   size: 110, 110
   orig: 110, 110
   offset: 0, 0
   index: -1
 exitButton
   rotate: false
-  xy: 825, 944
+  xy: 207, 43
   size: 77, 77
   orig: 77, 77
   offset: 0, 0
   index: -1
 gameover_logo
   rotate: false
-  xy: 484, 791
+  xy: 2, 2
   size: 104, 230
   orig: 104, 230
   offset: 0, 0
   index: -1
 infoButton
   rotate: false
-  xy: 484, 610
+  xy: 286, 43
+  size: 77, 77
+  orig: 77, 77
+  offset: 0, 0
+  index: -1
+leaderboardsButton
+  rotate: false
+  xy: 365, 43
   size: 77, 77
   orig: 77, 77
   offset: 0, 0
   index: -1
 menuButton
   rotate: false
-  xy: 292, 142
+  xy: 444, 43
   size: 77, 77
   orig: 77, 77
   offset: 0, 0
   index: -1
 pauseButton
   rotate: false
-  xy: 781, 833
+  xy: 799, 79
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: -1
 penguin
   rotate: false
-  xy: 484, 689
+  xy: 666, 132
   size: 103, 100
   orig: 103, 100
   offset: 0, 0
   index: -1
 playButton
   rotate: false
-  xy: 713, 911
+  xy: 554, 122
   size: 110, 110
   orig: 110, 110
   offset: 0, 0
   index: -1
 rect_mask
   rotate: false
-  xy: 825, 900
+  xy: 859, 111
   size: 42, 42
   orig: 42, 42
   offset: 0, 0
   index: -1
 replayButton
   rotate: false
-  xy: 904, 944
+  xy: 523, 43
   size: 77, 77
   orig: 77, 77
   offset: 0, 0
   index: -1
 santa
   rotate: false
-  xy: 2, 41
+  xy: 108, 54
   size: 97, 178
   orig: 97, 178
   offset: 0, 0
   index: -1
 soundOffButton
   rotate: false
-  xy: 484, 531
+  xy: 602, 43
   size: 77, 77
   orig: 77, 77
   offset: 0, 0
   index: -1
 soundOnButton
   rotate: false
-  xy: 371, 142
+  xy: 681, 53
   size: 77, 77
   orig: 77, 77
   offset: 0, 0
   index: -1
 speech
   rotate: false
-  xy: 590, 911
+  xy: 207, 122
   size: 121, 110
   orig: 121, 110
   offset: 0, 0
