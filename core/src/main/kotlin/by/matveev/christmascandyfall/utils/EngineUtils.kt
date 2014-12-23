@@ -220,6 +220,16 @@ public fun Actor.clicked(handler: () -> Unit) {
     addListener(Listener())
 }
 
+public fun Actor.onceClicked(handler: () -> Unit) {
+    private class Listener : ClickListener() {
+        override fun clicked(event: InputEvent?, x: Float, y: Float) {
+            handler()
+            removeListener(this)
+        }
+    }
+    addListener(Listener())
+}
+
 public fun Actor.rippleClicked(handler: () -> Unit) {
     private class Listener : ClickListener() {
         override fun clicked(event: InputEvent?, x: Float, y: Float) {

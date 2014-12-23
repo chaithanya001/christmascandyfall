@@ -85,4 +85,6 @@ public class ControlTypeScreen : AbstractScreen() {
             centerInBounds(Cfg.width, Cfg.height)
         }
     }
+
+    override fun onHardKeyPressed(keyCode: Int) = Screens.set(MenuScreen())
 }

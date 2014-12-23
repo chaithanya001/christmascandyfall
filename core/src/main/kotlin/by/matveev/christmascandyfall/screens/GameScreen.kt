@@ -89,9 +89,7 @@ public class GameScreen(var controlType: ControlType) : AbstractScreen() {
         santa.pack()
         root().addActor(santa)
 
-        root().clicked {
-            root().clearListeners()
-
+        root().onceClicked {
             goalMessage.remove()
             startMessage.remove()
 
@@ -189,5 +187,13 @@ public class GameScreen(var controlType: ControlType) : AbstractScreen() {
     override fun dispose() {
         super.dispose()
         state.dispose()
+    }
+
+    override fun onHardKeyPressed(keyCode: Int) {
+        if (state.isPlaying) {
+            Screens.push(PauseScreen())
+        } else {
+            Screens.set(MenuScreen())
+        }
     }
 }

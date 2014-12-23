@@ -76,4 +76,6 @@ public class GameOverScreen(var state: GameState) : AbstractScreen() {
         Platform.actions?.checkForAchievements(state)
     }
 
+    override fun onHardKeyPressed(keyCode: Int) = Screens.set(MenuScreen())
+
 }

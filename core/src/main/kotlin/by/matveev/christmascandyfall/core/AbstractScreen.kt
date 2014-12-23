@@ -87,7 +87,7 @@ public abstract class AbstractScreen : Screen {
         // do nothing
     }
 
-    override fun dispose() = stage.clear()
+    override fun dispose() = stage.getRoot().clearChildren()
 
     public fun root(): Group = stage.getRoot()
 }

@@ -24,6 +24,7 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas
 import by.matveev.christmascandyfall.core.Screens
 import by.matveev.christmascandyfall.core.Prefs
 import by.matveev.christmascandyfall.Cfg
+import com.badlogic.gdx.Gdx
 
 public class PauseScreen : AbstractScreen() {
 
@@ -84,4 +85,6 @@ public class PauseScreen : AbstractScreen() {
             centerInBounds(Cfg.width, Cfg.height);
         }
     }
+
+    override fun onHardKeyPressed(keyCode: Int) = Screens.set(MenuScreen())
 }

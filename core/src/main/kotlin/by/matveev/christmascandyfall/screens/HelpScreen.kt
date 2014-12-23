@@ -97,4 +97,6 @@ public class HelpScreen : AbstractScreen() {
             addAction(Actions.scaleTo(1F, 1F, 0.5F, Interpolation.swingOut))
         }
     }
+
+    override fun onHardKeyPressed(keyCode: Int) = Screens.set(MenuScreen())
 }
