@@ -37,6 +37,7 @@ import by.matveev.christmascandyfall.entities.Effect
 import com.badlogic.gdx.scenes.scene2d.Actor
 import java.util.ArrayList
 import com.badlogic.gdx.Input
+import by.matveev.christmascandyfall.core.Prefs
 
 public class GameScreen(var controlType: ControlType) : AbstractScreen() {
 
@@ -51,6 +52,8 @@ public class GameScreen(var controlType: ControlType) : AbstractScreen() {
     {
         atlas = Assets.get<TextureAtlas>("gfx/game.atlas")
         music = Assets.get<Music>("sounds/music.ogg")
+        music.setLooping(true)
+
         state = GameState(this)
         isGutterVisible = true
     }
@@ -73,7 +76,10 @@ public class GameScreen(var controlType: ControlType) : AbstractScreen() {
     override fun show() {
         super.show()
 
-        if (state.start()) return
+        if (state.start()) {
+            if (Prefs.bool(Prefs.SOUNDS_KEY)) music.play()
+            return
+        }
 
         val goalMessage = label("collect candies,\navoid bombs!", style)
         goalMessage.setPosition((Cfg.width - goalMessage.getPrefWidth()) * 0.5F, Cfg.height * 0.7F);
@@ -94,6 +100,8 @@ public class GameScreen(var controlType: ControlType) : AbstractScreen() {
             startMessage.remove()
 
             state.isPlaying = true
+
+            if (Prefs.bool(Prefs.SOUNDS_KEY)) music.play()
 
             candies.setSize(Cfg.width, Cfg.height)
             root().addActor(candies)
@@ -182,6 +190,7 @@ public class GameScreen(var controlType: ControlType) : AbstractScreen() {
     override fun hide() {
         super.hide()
         state.stop()
+        music.pause()
     }
 
     override fun dispose() {

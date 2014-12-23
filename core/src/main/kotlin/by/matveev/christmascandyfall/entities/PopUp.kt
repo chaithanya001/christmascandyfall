@@ -23,6 +23,7 @@ import com.badlogic.gdx.math.Interpolation
 import by.matveev.christmascandyfall.utils.*
 import by.matveev.christmascandyfall.core.Assets
 import by.matveev.christmascandyfall.Cfg
+import com.badlogic.gdx.scenes.scene2d.utils.Align
 
 val popupPool: Pool<PopUp> = Pool({ PopUp(style) }) { popup -> popup.reset() }
 
@@ -35,7 +36,9 @@ public fun showMessage(parent: Group, text: String) {
     val message = popupPool.obtain()
     message.setText(text)
     message.pack()
-    message.centerInBounds(Cfg.width, Cfg.height)
+    message.setX((Cfg.width - message.getPrefWidth()) * 0.5f)
+    message.setY((Cfg.height - message.getPrefHeight()) * 0.5f)
+    message.setAlignment(Align.center)
     message.getColor().a = 0f;
 
     message.addAction(Actions.sequence(

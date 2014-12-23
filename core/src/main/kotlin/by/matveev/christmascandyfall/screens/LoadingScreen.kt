@@ -21,6 +21,7 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas
 import com.badlogic.gdx.graphics.g2d.BitmapFont
 import com.badlogic.gdx.audio.Music
 import com.badlogic.gdx.graphics.g2d.ParticleEffect
+import com.badlogic.gdx.audio.Sound
 
 
 public class LoadingScreen(val complete: () -> Unit) : AbstractScreen() {
@@ -29,6 +30,9 @@ public class LoadingScreen(val complete: () -> Unit) : AbstractScreen() {
         Assets.load("gfx/game.atlas", javaClass<TextureAtlas>())
         Assets.load("fonts/font.fnt", javaClass<BitmapFont>())
         Assets.load("sounds/music.ogg", javaClass<Music>())
+        Assets.load("sounds/bonus.wav", javaClass<Sound>())
+        Assets.load("sounds/powerup.wav", javaClass<Sound>())
+        Assets.load("sounds/hit.wav", javaClass<Sound>())
         Assets.load("effects/stars.p", javaClass<ParticleEffect>())
         Assets.load("effects/snowflakes.p", javaClass<ParticleEffect>())
     }

@@ -17,6 +17,7 @@ package by.matveev.christmascandyfall.core
 
 import com.badlogic.gdx.Preferences
 import com.badlogic.gdx.Gdx
+import java.util.concurrent.CopyOnWriteArrayList
 
 public class Prefs private() {
 
@@ -50,7 +51,7 @@ public class Prefs private() {
                     is String -> putString(key, value)
                     is Long -> putLong(key, value)
                 }
-                prefs.flush()
+                flush()
             }
         }
 

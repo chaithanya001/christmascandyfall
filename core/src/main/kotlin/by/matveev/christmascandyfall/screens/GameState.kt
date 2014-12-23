@@ -28,6 +28,8 @@ import com.badlogic.gdx.math.Interpolation
 import com.badlogic.gdx.scenes.scene2d.Group
 import by.matveev.christmascandyfall.core.Platform
 import by.matveev.christmascandyfall.core.Prefs
+import by.matveev.christmascandyfall.core.Assets
+import com.badlogic.gdx.audio.Sound
 
 public class GameState(val screen: GameScreen) {
 
@@ -49,8 +51,17 @@ public class GameState(val screen: GameScreen) {
 
     var multiplier = 1
 
+    val hitSound: Sound
+    val bonusSound: Sound
+    val powerUpSound: Sound
+
     val root: Group
     {
+
+        hitSound = Assets.get<Sound>("sounds/hit.wav");
+        bonusSound = Assets.get<Sound>("sounds/bonus.wav");
+        powerUpSound = Assets.get<Sound>("sounds/powerup.wav");
+
         root = screen.stage.root()
 
         countdown = Timer.every(1f) {
@@ -110,16 +121,18 @@ public class GameState(val screen: GameScreen) {
                         countdown.paused(false)
                     }
                 }
+                playSoundIfEnabled(bonusSound)
             }
 
             CandyType.Multiply -> {
                 multiplier = 2
-                showMessage(root, "Double Score & Time");
+                showMessage(root, "Double\nScore & Time");
                 stars(root, Cfg.width * 0.5f, Cfg.height * 0.5f)
                 screen.indicator.start(2 * Cfg.frozenTimeDelay)
                 Timer.times(2 * Cfg.frozenTimeDelay, 1) {
                     multiplier = 1
                 }
+                playSoundIfEnabled(bonusSound)
             }
 
             CandyType.MinusScore -> {
@@ -127,6 +140,7 @@ public class GameState(val screen: GameScreen) {
                 score = Math.max(0, score)
                 showPopup(root, "-${Cfg.scoreAntiBonus}", x, y);
                 Gdx.input.vibrate(Cfg.vibrateDuration);
+                playSoundIfEnabled(hitSound)
                 shake()
             }
 
@@ -135,6 +149,7 @@ public class GameState(val screen: GameScreen) {
                 gameTime = Math.max(0, gameTime)
                 showPopup(root, "-${Cfg.timeAntiBonus.asString()}", x, y);
                 Gdx.input.vibrate(Cfg.vibrateDuration);
+                playSoundIfEnabled(hitSound)
                 shake()
             }
 
@@ -158,8 +173,19 @@ public class GameState(val screen: GameScreen) {
                     bonusGenerator.paused(false)
                     antiBonusGenerator.paused(false)
                 }
+                playSoundIfEnabled(powerUpSound)
             }
 
+        }
+    }
+
+    fun playSoundIfEnabled(sound: Sound) {
+        println("playSoundIfEnabled")
+        if (Prefs.bool(Prefs.SOUNDS_KEY)) {
+            println("should be played")
+            sound.play()
+        } else {
+            println("cant play sound")
         }
     }
 
