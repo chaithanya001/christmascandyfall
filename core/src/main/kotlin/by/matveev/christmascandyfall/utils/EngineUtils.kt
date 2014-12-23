@@ -38,6 +38,7 @@ import com.badlogic.gdx.scenes.scene2d.Stage
 import com.badlogic.gdx.Input
 import by.matveev.christmascandyfall.entities.Ripple
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton
+import com.badlogic.gdx.Gdx
 
 public fun verticalGroup(parent: Group? = null, init: VerticalGroup.() -> Unit): VerticalGroup {
     val group = VerticalGroup();
@@ -279,3 +280,5 @@ public fun Widget.originCenter() {
 public fun Stage.root(): Group {
     return getRoot()
 }
+
+public fun Stage.updateViewport(): Unit = getViewport().update(Gdx.graphics.getWidth(), Gdx.graphics.getHeight())

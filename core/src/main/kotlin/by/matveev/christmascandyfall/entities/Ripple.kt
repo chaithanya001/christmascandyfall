@@ -21,6 +21,7 @@ import com.badlogic.gdx.utils.Disposable
 import com.badlogic.gdx.graphics.g2d.Batch
 import com.badlogic.gdx.graphics.Color
 import com.badlogic.gdx.Gdx
+import by.matveev.christmascandyfall.utils.*
 
 public class Ripple(x: Float, y: Float, val velocity: Float = 3 * 1000F, val complete: () -> Unit) : Actor(), Disposable {
 
@@ -52,6 +53,9 @@ public class Ripple(x: Float, y: Float, val velocity: Float = 3 * 1000F, val com
             circle(getX(), getY(), radius)
             end()
         }
+
+        getStage().updateViewport()
+
         batch?.begin()
     }
 
