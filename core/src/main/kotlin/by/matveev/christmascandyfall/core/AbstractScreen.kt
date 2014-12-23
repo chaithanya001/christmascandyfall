@@ -26,6 +26,8 @@ import com.badlogic.gdx.scenes.scene2d.Group
 import by.matveev.christmascandyfall.Cfg
 import by.matveev.christmascandyfall.utils.onKeyDown
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer
+import com.badlogic.gdx.utils.viewport.FillViewport
+import by.matveev.christmascandyfall.utils.updateViewport
 
 public abstract class AbstractScreen : Screen {
 
@@ -37,10 +39,13 @@ public abstract class AbstractScreen : Screen {
     val renderer = ShapeRenderer()
     var isGutterVisible = false;
 
+    val backgroundStage: Stage
     public val stage: Stage;
     {
+
         stage = Stage(FitViewport(Cfg.width, Cfg.height))
         stage.onKeyDown { onHardKeyPressed(it) }
+        backgroundStage = Stage(FitViewport(Cfg.width, Cfg.height))
     }
 
     override fun render(delta: Float) {
@@ -62,6 +67,9 @@ public abstract class AbstractScreen : Screen {
                 end()
             }
         }
+
+        backgroundStage.act()
+        backgroundStage.draw()
 
         stage.act()
         stage.draw()

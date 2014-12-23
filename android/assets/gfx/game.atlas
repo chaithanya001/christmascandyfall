@@ -1,229 +1,236 @@
 
 game.png
-size: 1024,256
+size: 1024,1024
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
 achievementsButton
   rotate: false
-  xy: 771, 158
+  xy: 215, 143
   size: 77, 77
   orig: 77, 77
   offset: 0, 0
   index: -1
 antibonus_score
   rotate: false
-  xy: 771, 116
+  xy: 825, 903
   size: 42, 40
   orig: 42, 40
   offset: 0, 0
   index: -1
 antibonus_time
   rotate: false
-  xy: 939, 119
+  xy: 2, 2
   size: 37, 37
   orig: 37, 37
   offset: 0, 0
   index: -1
+background
+  rotate: false
+  xy: 2, 222
+  size: 480, 800
+  orig: 480, 800
+  offset: 0, 0
+  index: -1
 backwardButton
   rotate: false
-  xy: 850, 158
+  xy: 702, 833
   size: 77, 77
   orig: 77, 77
   offset: 0, 0
   index: -1
 bonus_freeze
   rotate: false
-  xy: 859, 114
+  xy: 983, 980
   size: 38, 42
   orig: 38, 42
   offset: 0, 0
   index: -1
 bonus_gifts
   rotate: false
-  xy: 108, 12
+  xy: 103, 65
   size: 43, 43
   orig: 43, 43
   offset: 0, 0
   index: -1
 bonus_multiply
   rotate: false
-  xy: 815, 116
+  xy: 484, 332
   size: 42, 40
   orig: 42, 40
   offset: 0, 0
   index: -1
 candy1
   rotate: false
-  xy: 231, 2
+  xy: 563, 646
   size: 17, 42
   orig: 17, 42
   offset: 0, 0
   index: -1
 candy2
   rotate: false
-  xy: 250, 2
+  xy: 484, 288
   size: 17, 42
   orig: 17, 42
   offset: 0, 0
   index: -1
 candy3
   rotate: false
-  xy: 269, 2
+  xy: 188, 66
   size: 17, 42
   orig: 17, 42
   offset: 0, 0
   index: -1
 candy4
   rotate: false
-  xy: 288, 2
+  xy: 563, 602
   size: 17, 42
   orig: 17, 42
   offset: 0, 0
   index: -1
 candy5
   rotate: false
-  xy: 307, 2
+  xy: 484, 244
   size: 17, 42
   orig: 17, 42
   offset: 0, 0
   index: -1
 candy6
   rotate: false
-  xy: 326, 2
+  xy: 503, 288
   size: 17, 42
   orig: 17, 42
   offset: 0, 0
   index: -1
 candy7
   rotate: false
-  xy: 978, 114
+  xy: 452, 178
   size: 30, 42
   orig: 30, 42
   offset: 0, 0
   index: -1
 candy8
   rotate: false
-  xy: 899, 114
+  xy: 148, 66
   size: 38, 42
   orig: 38, 42
   offset: 0, 0
   index: -1
 continueButton
   rotate: false
-  xy: 929, 158
+  xy: 825, 945
   size: 77, 77
   orig: 77, 77
   offset: 0, 0
   index: -1
 controlTiltButton
   rotate: false
-  xy: 330, 125
+  xy: 103, 110
   size: 110, 110
   orig: 110, 110
   offset: 0, 0
   index: -1
 controlTouchButton
   rotate: false
-  xy: 442, 125
+  xy: 590, 800
   size: 110, 110
   orig: 110, 110
   offset: 0, 0
   index: -1
 exitButton
   rotate: false
-  xy: 207, 46
+  xy: 484, 611
   size: 77, 77
   orig: 77, 77
   offset: 0, 0
   index: -1
 gameover_logo
   rotate: false
-  xy: 2, 5
+  xy: 484, 792
   size: 104, 230
   orig: 104, 230
   offset: 0, 0
   index: -1
 infoButton
   rotate: false
-  xy: 286, 46
+  xy: 294, 143
   size: 77, 77
   orig: 77, 77
   offset: 0, 0
   index: -1
 leaderboardsButton
   rotate: false
-  xy: 365, 46
+  xy: 904, 945
   size: 77, 77
   orig: 77, 77
   offset: 0, 0
   index: -1
 menuButton
   rotate: false
-  xy: 444, 46
+  xy: 484, 532
   size: 77, 77
   orig: 77, 77
   offset: 0, 0
   index: -1
 pauseButton
   rotate: false
-  xy: 197, 12
+  xy: 41, 7
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: -1
 penguin
   rotate: false
-  xy: 666, 135
+  xy: 484, 690
   size: 103, 100
   orig: 103, 100
   offset: 0, 0
   index: -1
 playButton
   rotate: false
-  xy: 554, 125
+  xy: 713, 912
   size: 110, 110
   orig: 110, 110
   offset: 0, 0
   index: -1
 rect_mask
   rotate: false
-  xy: 153, 13
+  xy: 781, 868
   size: 42, 42
   orig: 42, 42
   offset: 0, 0
   index: -1
 replayButton
   rotate: false
-  xy: 523, 46
+  xy: 373, 143
   size: 77, 77
   orig: 77, 77
   offset: 0, 0
   index: -1
 santa
   rotate: false
-  xy: 108, 57
-  size: 97, 178
-  orig: 97, 178
+  xy: 2, 41
+  size: 99, 179
+  orig: 99, 179
   offset: 0, 0
   index: -1
 soundOffButton
   rotate: false
-  xy: 602, 46
+  xy: 484, 453
   size: 77, 77
   orig: 77, 77
   offset: 0, 0
   index: -1
 soundOnButton
   rotate: false
-  xy: 681, 56
+  xy: 484, 374
   size: 77, 77
   orig: 77, 77
   offset: 0, 0
   index: -1
 speech
   rotate: false
-  xy: 207, 125
+  xy: 590, 912
   size: 121, 110
   orig: 121, 110
   offset: 0, 0

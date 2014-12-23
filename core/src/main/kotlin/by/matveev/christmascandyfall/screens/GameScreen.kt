@@ -38,6 +38,8 @@ import com.badlogic.gdx.scenes.scene2d.Actor
 import java.util.ArrayList
 import com.badlogic.gdx.Input
 import by.matveev.christmascandyfall.core.Prefs
+import com.badlogic.gdx.scenes.scene2d.Stage
+import com.badlogic.gdx.utils.viewport.FillViewport
 
 public class GameScreen(var controlType: ControlType) : AbstractScreen() {
 
@@ -89,7 +91,7 @@ public class GameScreen(var controlType: ControlType) : AbstractScreen() {
         startMessage.setPosition((Cfg.width - startMessage.getPrefWidth()) * 0.5F, Cfg.height * 0.5F);
         root().addActor(startMessage)
 
-        image(root(), atlas.findRegion("background"))
+        image(backgroundStage.getRoot(), atlas.findRegion("background"))
 
         santa.setPosition((Cfg.width - santa.getPrefWidth()) * 0.5F, 0F)
         santa.pack()
