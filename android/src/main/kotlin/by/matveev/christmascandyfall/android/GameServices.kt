@@ -29,6 +29,7 @@ import by.matveev.christmascandyfall.core.PlatformActions
 import android.net.Uri
 import by.matveev.christmascandyfall.android.utils.Achievements
 import by.matveev.christmascandyfall.screens.GameState
+import com.google.android.gms.games.GamesActivityResultCodes
 
 public class GameServices(val activity: Activity) : GoogleApiClient.ConnectionCallbacks,
         GoogleApiClient.OnConnectionFailedListener, PlatformActions {
@@ -79,7 +80,6 @@ public class GameServices(val activity: Activity) : GoogleApiClient.ConnectionCa
     }
 
     override fun unlockAchievement(identifier: String) {
-        println("unlockAchievement = [${identifier}]")
         Games.Achievements.unlock(client, identifier);
     }
 
@@ -87,7 +87,7 @@ public class GameServices(val activity: Activity) : GoogleApiClient.ConnectionCa
         if (isSignedIn()) {
             activity.startActivityForResult(
                     Games.Achievements.getAchievementsIntent(client), requestCodeUnused)
-        } else {
+        } else if (!client.isConnecting()) {
             client.connect()
         }
     }
@@ -96,7 +96,7 @@ public class GameServices(val activity: Activity) : GoogleApiClient.ConnectionCa
         if (isSignedIn()) {
             activity.startActivityForResult(Games.Leaderboards.getLeaderboardIntent(
                     client, activity.getString(R.string.leaderboard_id)), requestCodeUnused);
-        } else {
+        } else if (!client.isConnecting()) {
             client.connect()
         }
     }
@@ -106,8 +106,10 @@ public class GameServices(val activity: Activity) : GoogleApiClient.ConnectionCa
             isResolvingConnectionFailure = false
             if (resultCode == requestResultOk) {
                 client.connect()
-            } else {
-                // should show some notification...
+            } else if (resultCode == GamesActivityResultCodes.RESULT_RECONNECT_REQUIRED){
+                client.connect()
+            } else if (resultCode == Activity.RESULT_CANCELED) {
+                client.disconnect()
             }
         }
     }
